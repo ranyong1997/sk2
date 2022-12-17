@@ -1,6 +1,7 @@
 
 ## 适用https://icve-mooc.icve.com.cn/cms/
-###主要刷课API
+### 主要刷课API
+
 - URL：https://course.icve.com.cn/learnspace/course/study/learningTime_saveVideoLearnDetailRecord.action
 请求方式：Post
 参数：
@@ -12,8 +13,8 @@ studyRecord： 通过crypto-js AES加密的一串数据，包含课程ID，视�
 
 ![](image/img1.png)
 
+### 获取limitId
 
-###获取limitId
 - URL:https://course.icve.com.cn/learnspace/learn/learn/templateeight/index.action?params.courseId=26ae32dc2dcd4c9cbace10894d9a172b___&params.templateType=8&params.templateStyleType=0&params.template=templateeight&params.classId=&params.tplRoot=learn
 请求方式： Get
 
