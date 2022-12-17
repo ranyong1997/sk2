@@ -26,16 +26,14 @@ header = {
     'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
 }
 
-for key, value in init_mooc.get_user_all().items():
-    a = init_mooc.login(name=key, password=value)
-    print(a[0])
-    header['Cookie'] = f'webtrn_cms={a[3]}; whatysns=751f50efbd43e9d7505ebdaa9ac85ff3; webtrn=9eb19412ac0dbc2ebe3eccd20fd6e9c6; _abfpc=f26831421fa2dbe36317aa541ed619c05460effe_2.0; cna=f39af516d46dc05b2480a382baddeb0d; JSESSIONID={a[4]}; _uid=465596ae-2b2a-4f73-abf7-2e998c2fd451; acw_tc={a[1]}; token={a[0]}; SERVERID={a[2]}'
-print(header['Cookie'])
-
-
+# for key, value in init_mooc.get_user_all().items():
+#     username = key  # 账号
+#     password = value  # 密码
+#     a = init_mooc.login(name=username, password=password)
+    # header[
+        # 'Cookie'] = f'JSESSIONID={a[4]}; aliyungf_tc=2fc0927f5a3ee5d612d75f5690676ab1366280ad5c6a2dc2aa3d1b76283c9f66; JSESSIONID=59CE88C8727A464FFA345A6758817E7F.learnspace_kfkc_aliyun; _abfpc=f26831421fa2dbe36317aa541ed619c05460effe_2.0; cna=f39af516d46dc05b2480a382baddeb0d; UNTYXLCOOKIE=dXNlci5pY3ZlLmNvbS5jbnx8MWRjZjNmMWY3OTI3NjM2MTVmYmNjM2Q3MDlmMjBhNDN8fDEzMjA2MjY5ODA0fHx6aHpq; learning-course=ms32amyox4hk6j6arvwmra_1754b2c1a83f4268a668e959b9d3941a___; _uid=d2b7a2af-4691-4a84-b203-65ecfcab3e22; token={a[0]}; alicfw=3124608875%7C2125642936%7C1328233664%7C1328232708; alicfw_gfver=v1.200309.1; jwplayer.volume=50; acw_tc={a[1]}; SERVERID={a[2]}'
 header[
-    'Cookie'] = 'JSESSIONID=0ED04E93C86D68DA2CF0D03094145661; aliyungf_tc=2fc0927f5a3ee5d612d75f5690676ab1366280ad5c6a2dc2aa3d1b76283c9f66; JSESSIONID=59CE88C8727A464FFA345A6758817E7F.learnspace_kfkc_aliyun; _abfpc=f26831421fa2dbe36317aa541ed619c05460effe_2.0; cna=f39af516d46dc05b2480a382baddeb0d; UNTYXLCOOKIE=dXNlci5pY3ZlLmNvbS5jbnx8MWRjZjNmMWY3OTI3NjM2MTVmYmNjM2Q3MDlmMjBhNDN8fDEzMjA2MjY5ODA0fHx6aHpq; learning-course=ms32amyox4hk6j6arvwmra_1754b2c1a83f4268a668e959b9d3941a___; _uid=d2b7a2af-4691-4a84-b203-65ecfcab3e22; token=d271970f-a6ec-46b5-ae11-1f40367beda9; acw_tc=707c9f6716712679062397759e01f8eb14abb3a11b2f43df9524ce9212acdb; alicfw=3124608875%7C2125642936%7C1328233664%7C1328232708; alicfw_gfver=v1.200309.1; SERVERID=db0581f1d84e519339e911738e844a10|1671268091|1671244551'
-
+    'Cookie'] = 'JSESSIONID=2D9BBE38A2EAF7ABF62E584D75071601; aliyungf_tc=2fc0927f5a3ee5d612d75f5690676ab1366280ad5c6a2dc2aa3d1b76283c9f66; JSESSIONID=59CE88C8727A464FFA345A6758817E7F.learnspace_kfkc_aliyun; _abfpc=f26831421fa2dbe36317aa541ed619c05460effe_2.0; cna=f39af516d46dc05b2480a382baddeb0d; _uid=d2b7a2af-4691-4a84-b203-65ecfcab3e22; alicfw=3124608875%7C2125642936%7C1328233664%7C1328232708; alicfw_gfver=v1.200309.1; jwplayer.volume=50; acw_tc=76b20f5116712698891833608e8bb2560861b8a68fdd67b8482efecfe4b661; learnspace_taolun=0be5d730b745f30657fe2554fde22ded; sid=f03db508-22eb-4047-9238-88db953fa0da; h_courseId=1754b2c1a83f4268a668e959b9d3941a; platform_flag=learnspace; ST="BnD3eMizlU4AV0ueX929Vpgq1EF2EXdus64ZJEfmlAI="; rest_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbklkIjoiMTMyMDYyNjk4MDQiLCJzaXRlQ29kZSI6InpoemoiLCJ1c2VyX25hbWUiOiIxMzIwNjI2OTgwNCIsInBob3RvIjpudWxsLCJzdUlkIjoibXMzMmFteW94NGhrNmo2YXJ2d21yYSIsImF1dGhvcml0aWVzIjpbIlJPTEVfU1RVREVOVCJdLCJjbGllbnRfaWQiOiIyMTA4MTg3NzE4IiwidHJ1ZU5hbWUiOiLlhonli4ciLCJzdWRJZCI6Im1zMzJhbXlveDRoazZqNmFydndtcmEiLCJyb2xlQ29kZSI6IjAiLCJzY29wZSI6WyJhbGwiXSwicm9sZU5hbWUiOiLlrabnlJ8iLCJleHAiOjE2NzI0ODA0OTUsImp0aSI6IjhhMzEwYmNhLTBhOTItNGJkNi1iNTljLWZiMDYxOTY5ZTMxMiJ9.C1uheB06kxBlKLzSzF_3KMVftFo_k8sw422qmGVVgbP4uf9zg8OKcXOT15-eQG4cNYHH5kqYnaFpNsdovsL1ulliMtT1STlcGy3Ffxy93RfE1jueEKyzxBdGecbueUE1nS4z8B52ZCXHgxF0sgs8YxzsKW8pdd1BqIkgdnCfAitsZMYoC5r2eUHZck8l0EM9avhWErGePnzDIOLeGw_QIbTE78Xjk6W-CRm95WDXqbfr0X9DuGG56VQEcX02AXupB3-Ige6pPJJq8x4kovSHT5ysrWbc8goOY44hNYRVly3ePflY3m1V6P85kAsxKs4xhJOfy_-KVwrNMUCBZxDXRw; token=17b59daf-1b58-439e-bc2a-6e3f1322462d; UNTYXLCOOKIE="dXNlci5pY3ZlLmNvbS5jbnx8YTFjMDUwMTM4MzQ0ZGM5OTQyMDdiMzA5MjA1MGM2YjF8fDIxMTUxMzkwMTV8fHpoemo="; learning-course=402883ab84ed29d60184edc4d5ec0231_c3f008fd84e649a78bdb4e274a079e4d___; SERVERID=20157a9178d6239df0e552bdb97bd90e|1671271450|1671244551'
 # 获得limitId
 res = requests.get(
     url='https://course.icve.com.cn/learnspace/learn/learn/templateeight/index.action?params.courseId=1754b2c1a83f4268a668e959b9d3941a___¶ms.templateType=8¶ms.templateStyleType=0¶ms.template=templateeight¶ms.classId=¶ms.tplRoot=learn',
