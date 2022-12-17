@@ -6,9 +6,10 @@
 # @File    : test.py
 # @Software: PyCharm
 # @desc    :
+import random
 from bdb import set_trace
 from time import sleep
-
+from common import init_mooc
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -18,12 +19,22 @@ import sys
 
 header = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
-    'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    'Accept': "application/json, text/javascript, */*; q=0.01",
     'Accept-Encodign': 'gzip, deflate, br',
-    'Cookie': ''
+    'Cookie': '',
+    'Content-Type': 'application/json',
+    'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
 }
+
+for key, value in init_mooc.get_user_all().items():
+    a = init_mooc.login(name=key, password=value)
+    print(a[0])
+    header['Cookie'] = f'webtrn_cms={a[3]}; whatysns=751f50efbd43e9d7505ebdaa9ac85ff3; webtrn=9eb19412ac0dbc2ebe3eccd20fd6e9c6; _abfpc=f26831421fa2dbe36317aa541ed619c05460effe_2.0; cna=f39af516d46dc05b2480a382baddeb0d; JSESSIONID={a[4]}; _uid=465596ae-2b2a-4f73-abf7-2e998c2fd451; acw_tc={a[1]}; token={a[0]}; SERVERID={a[2]}'
+print(header['Cookie'])
+
+
 header[
-    'Cookie'] = 'JSESSIONID=DD1EDB571F4FD826CA7C0FEE895F894F; _abfpc=1d466485af98ed5add63780f7b4ace668b0502d5_2.0; cna=d0ed267474e1abe89b79166eab802eac; ssxmod_itna=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2W7nDDsqtrDSxGKidDqxBWWl2He9v9vhiAClo2oDgnTP0Nfb9l74h=5llWeDHxY=DUpDTeqrDeW=D5xGoDPxDeDAQKiTDY4DdjpNv=DEDeKDRDAQDzwd/4h6z/G=DI3iDmTLDx7t9ITL5qeG2DGUeIkGx7qDMIeGXC0nPxDUTTZwMIMuixYPWQk0xxBQD7di9DYoUneDHzdN8ghDW0Gm10iQ5WOxqt+G+7Gme/RhA/GGi7xqLdYeGYr+1b5DAYDj1CiD=; ssxmod_itna2=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2WYikIqqhDlphxjb+xj8drKju5QqL3QD6mYmtQjBPeuDwjW3jAqvee4Yv8eCKdYcftOKCDXesC+iF4OqlKUycajU8B1dQ2BWuHqOQfcS6q/24ax9DdEc5C2mKCYIyGZY7GPhrOWp74jCvGErqCPKwh+pvGq0YN+Rqa0pAGW3BaQfHGL9bx0WkCclYaAF5QlC2hDH3202n7OIeTKAjiQO8F6cIhNgLoDQFODjKD+a95=nxbMAQOYpDK4D=; _uid=10b64d0f-5e25-46df-aa14-9e89b0f28624; aliyungf_tc=ea912de64b946b4e4ebf30b252c40f190120ccb19e3fc57e16846ec40637efa9; rest_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbklkIjoiMTMyMDYyNjk4MDQiLCJzaXRlQ29kZSI6InpoemoiLCJ1c2VyX25hbWUiOiIxMzIwNjI2OTgwNCIsInBob3RvIjpudWxsLCJzdUlkIjoibXMzMmFteW94NGhrNmo2YXJ2d21yYSIsImF1dGhvcml0aWVzIjpbIlJPTEVfU1RVREVOVCJdLCJjbGllbnRfaWQiOiIyMTA4MTg3NzE4IiwidHJ1ZU5hbWUiOiLlhonli4ciLCJzdWRJZCI6Im1zMzJhbXlveDRoazZqNmFydndtcmEiLCJyb2xlQ29kZSI6IjAiLCJzY29wZSI6WyJhbGwiXSwicm9sZU5hbWUiOiLlrabnlJ8iLCJleHAiOjE2NzE3NjYyMzUsImp0aSI6ImY5ZWY2ODFmLWEwNjktNDczMS05ODJmLWZiMzBkMDkwMmI1ZCJ9.bjL0JqkGqb8leSKbsszpUMFwzSYVgUZ_fh7tR-HUIuRo5rKLPgzD-sFHZuSuICrkYaO_mqEo4RA4XxJPjzh5fI7PQITKVIVDg-wOBDkulhzr2A-gDSRjvoiLjtyRkmRSKiuPqy4TemaOWukBAZVrPS3j9wrlCFFZ5B7L-YhQDqo2Eh5B8G_9yNMtnYW85F_N4qDBHzGw-tjY8PZl43ExOHs75veYKH2klgAXN9zVlmHUgOfCkUly7Cgy6SbWjWmdhvuu-qTPOhOcPqbGIsEYeE6M2j0tikUAUJWJZErcNUoSgM1niKindqSdukL7Vass1UjRod66m_I3p8jxPLIpOw; h_courseId=1754b2c1a83f4268a668e959b9d3941a; platform_flag=learnspace; jwplayer.volume=50; token=904bbf59-ded9-46a5-b136-d58390ed6068; alicfw=1342754005%7C2126365038%7C1328233774%7C1328232936; alicfw_gfver=v1.200309.1; acw_tc=2f6fc10516705769550493927e34fee244d86ca6cd5fc0417bd7025632ce60; UNTYXLCOOKIE="dXNlci5pY3ZlLmNvbS5jbnx8YTFjMDUwMTM4MzQ0ZGM5OTQyMDdiMzA5MjA1MGM2YjF8fDIxMTUxMzkwMTV8fHpoemo="; learning-course=402883ab84ed29d60184edc4d5ec0231_1754b2c1a83f4268a668e959b9d3941a___; SERVERID=22293c637420c41b505231fd808611e8|1670576960|1670554906'
+    'Cookie'] = 'JSESSIONID=0ED04E93C86D68DA2CF0D03094145661; aliyungf_tc=2fc0927f5a3ee5d612d75f5690676ab1366280ad5c6a2dc2aa3d1b76283c9f66; JSESSIONID=59CE88C8727A464FFA345A6758817E7F.learnspace_kfkc_aliyun; _abfpc=f26831421fa2dbe36317aa541ed619c05460effe_2.0; cna=f39af516d46dc05b2480a382baddeb0d; UNTYXLCOOKIE=dXNlci5pY3ZlLmNvbS5jbnx8MWRjZjNmMWY3OTI3NjM2MTVmYmNjM2Q3MDlmMjBhNDN8fDEzMjA2MjY5ODA0fHx6aHpq; learning-course=ms32amyox4hk6j6arvwmra_1754b2c1a83f4268a668e959b9d3941a___; _uid=d2b7a2af-4691-4a84-b203-65ecfcab3e22; token=d271970f-a6ec-46b5-ae11-1f40367beda9; acw_tc=707c9f6716712679062397759e01f8eb14abb3a11b2f43df9524ce9212acdb; alicfw=3124608875%7C2125642936%7C1328233664%7C1328232708; alicfw_gfver=v1.200309.1; SERVERID=db0581f1d84e519339e911738e844a10|1671268091|1671244551'
 
 # 获得limitId
 res = requests.get(
