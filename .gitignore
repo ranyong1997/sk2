@@ -339,3 +339,4 @@ conf/dev.env
 /node_modules/*
 *.png
 /node_modules
+/data/*

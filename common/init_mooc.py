@@ -41,9 +41,26 @@ def to_url(name, password):
         "type": 1
     }
     token_ = requests.post(url=LOGIN_SYSTEM_URL, json=data, headers=header)
+    # print(token_.json())
     code_url = f"{base_url_}/patch/zhzj/api_getUserInfo.action"
-    code_result = requests.post(url=code_url, json=token_.json()['data'], headers=header)
-    return token_.json(), token_.cookies, code_result.cookies
+    code_result = requests.post(url=code_url, data=token_.json()['data'], headers=header)
+    cookiejar = code_result.cookies
+    cookiedict = requests.utils.dict_from_cookiejar(cookiejar)
+    # print(cookiedict)
+    data2 = {
+        "token": token_.json()['data'],
+        "siteCode": "zhzj",
+        "curPage": 1,
+        "pageSize": 6,
+        "selectType": 1,
+        "searchName": ''
+    }
+    print(data2)
+    url2 = "https://icve-mooc.icve.com.cn/patch/zhzj/studentMooc_selectMoocCourse.action"
+    url2_result = requests.post(url=url2, json=data2, headers=header)
+    print(url2_result.json())
+
+    # return token_.json(), token_.cookies, code_result.cookies
 
 
 def login(name, password):  # 0.登录
@@ -75,8 +92,8 @@ def login(name, password):  # 0.登录
 
 def get_user_all():
     """读取csv至字典"""
-    with open("data/data.csv", "r", encoding='gbk') as csvFile:
-        # with open("../data/data.csv", "r", encoding='gbk') as csvFile:
+    # with open("data/data.csv", "r", encoding='gbk') as csvFile:
+    with open("../data/data.csv", "r", encoding='gbk') as csvFile:
         reader = csv.reader(csvFile)
         # 建立空字典
         result = {}
@@ -92,5 +109,5 @@ if __name__ == '__main__':
     for key, value in get_user_all().items():
         username = key
         password = value
-        login(name=username, password=password)
-        # to_url(name=username, password=password)
+        # login(name=username, password=password)
+        to_url(name=username, password=password)
