@@ -12,9 +12,9 @@ const encrypt = function (e) {
 const decrypt = function (e) {
     var cipherParams = CryptoJS.lib.CipherParams.create({
         ciphertext: CryptoJS.enc.Base64.parse(e)
-   });
+    });
     var f = CryptoJS.enc.Utf8.parse("learnspaceaes123");
-    var res = CryptoJS.AES.decrypt(cipherParams,f,{
+    var res = CryptoJS.AES.decrypt(cipherParams, f, {
         mode: CryptoJS.mode.ECB,
         padding: CryptoJS.pad.Pkcs7
     });
@@ -54,7 +54,8 @@ const formatStr = function (c, a) {
                 l += k
             } else {
                 l += "0" + k
-            } l += c + (b + "")
+            }
+            l += c + (b + "")
         }
     } else {
         return c + ""
@@ -62,7 +63,7 @@ const formatStr = function (c, a) {
     return l
 };
 
-const getParams=function (p) {
+const getParams = function (p) {
     var q = {
         courseId: p.courseId,
         itemId: p.itemId,
@@ -86,13 +87,12 @@ var end = process.argv[4]
 var p = {
     "interval": true,
     "playComplete": true,
-    "courseId": "26ae32dc2dcd4c9cbace10894d9a172b___",
-    "itemId": itemids,
+    "courseId": "1754b2c1a83f4268a668e959b9d3941a___", // 代表当前学习课程的16进制id
+    "itemId": itemids, // 应课程中的每个视频或者文档也有一个16进制id
     "position": 4,
     "videoTotalTime": "00:10:35",
-    "startTime": parseInt(start),
-    "endTime": parseInt(end),
-    "studyTimeLong": end-start
+    "startTime": parseInt(start),   // 对应时长进度
+    "endTime": parseInt(end),   // 对应时长，表示当前视频从startTime秒学习到了endTime的秒数
+    "studyTimeLong": end - start
 }
-//console.log(p)
 console.log(encrypt(JSON.stringify(getParams(p))))
