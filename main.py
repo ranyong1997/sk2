@@ -8,6 +8,8 @@
 # @desc    :
 
 import os
+from bdb import set_trace
+
 from bs4 import BeautifulSoup
 import re
 import json
@@ -43,26 +45,79 @@ res = requests.get(
     headers=header
 )
 soup = BeautifulSoup(res.content, 'lxml')
-print("soup:", soup)
-# 刷视频
-divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="video")
+# print("soup:", soup)
+# 判断视频
+# divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="video")
 # 视频的id
+# itemids = {}
+# for i in divs:
+#     itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
+# print("获取所有视频id===>", itemids, "开始刷课===>")
+# print("itemids.keys():", itemids.keys())
+# 开始刷课
+# for key in itemids.keys():
+#     itemid = itemids[key]
+#     print("itemid:", itemid)
+#     data2 = {
+#         'itemId': itemid,
+#         'videoTotalTime': '00:10:00'
+#     }
+#     total = requests.post(url=f'{BaseURL}/learnspace/course/plugins/cloud_updateVideoTotalTime.action',
+#                           headers=header, data=data2)
+#     # 判断视频是否学习完成
+#     data2 = {
+#         'params.courseId': f'{courseId}___',
+#         'params.itemId': itemid
+#     }
+#     complete = requests.post(
+#         url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
+#         headers=header, data=data2)
+#     print("code:", complete.content.decode())
+#     # 判断返回值 0为成功，1为失败
+#     if json.loads(complete.content.decode())['result']['completed'] == '0':
+#         print(key, '视频状态已完成，跳过')
+#     continue
+#     # 刷课
+#     start = 0
+#     end = 0
+#     while True:
+#         start = end
+#         # 每次增加20秒
+#         end = start + 20
+#         cmd = os.popen('node ./test.js %s %s %s' % (itemid, start, end))
+#         # 原始字符串的开头和结尾删除给定的字符
+#         studyrecord = cmd.read().strip('\n')
+#         cmd.close()
+#         data = {
+#             "limitId": itemid,
+#             "studyRecord": studyrecord
+#         }
+#         res2 = requests.post(
+#             url=f'{BaseURL}/learnspace/course/study/learningTime_saveVideoLearnDetailRecord.action',
+#             headers=header, data=data
+#         )
+#         if '保存成功' in res2.content.decode() or '总时长' in res2.content.decode():
+#             print("\r", end="")
+#             print(key, "\033[32m学习时长: {}秒 \033[0m".format(end), end="")
+#             sys.stdout.flush()
+#             break
+#         else:
+#             pass
+#         if '总时长' in res2.content.decode():
+#             break
+#     print(key, '\033[31m学习完成\033[0m')
+#     sleep(1)
+
+# 判断文档
+divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="doc")
 itemids = {}
 for i in divs:
     itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
-print("获取所有视频id===>", itemids, "开始刷课===>")
-print("itemids.keys():", itemids.keys())
-# 开始刷课
+# 轮询item
+print("获取所有文档id===>", itemids, "开始刷文档===>")
 for key in itemids.keys():
     itemid = itemids[key]
-    print("itemid:", itemid)
-    data2 = {
-        'itemId': itemid,
-        'videoTotalTime': '00:10:00'
-    }
-    total = requests.post(url=f'{BaseURL}/learnspace/course/plugins/cloud_updateVideoTotalTime.action',
-                          headers=header, data=data2)
-    # 判断视频是否学习完成
+    # 判断文档是否学习完成
     data2 = {
         'params.courseId': f'{courseId}___',
         'params.itemId': itemid
@@ -70,76 +125,62 @@ for key in itemids.keys():
     complete = requests.post(
         url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
         headers=header, data=data2)
-    print("code:", complete.content.decode())
-    # 判断返回值 0为成功，1为失败
-    if json.loads(complete.content.decode())['result']['completed'] == '0':
-        print(key, '视频状态已完成，跳过')
-    continue
-    # 刷课
-    start = 0
-    end = 0
-    while True:
-        start = end
-        # 每次增加20秒
-        end = start + 20
-        cmd = os.popen('node ./test.js %s %s %s' % (itemid, start, end))
-        # 原始字符串的开头和结尾删除给定的字符
-        studyrecord = cmd.read().strip('\n')
-        cmd.close()
-        data = {
-            "limitId": itemid,
-            "studyRecord": studyrecord
-        }
-        res2 = requests.post(
-            url=f'{BaseURL}/learnspace/course/study/learningTime_saveVideoLearnDetailRecord.action',
-            headers=header, data=data
-        )
-        if '保存成功' in res2.content.decode() or '总时长' in res2.content.decode():
-            print("\r", end="")
-            print(key, "\033[32m学习时长: {}秒 \033[0m".format(end), end="")
-            sys.stdout.flush()
-            break
-        else:
-            pass
-        if '总时长' in res2.content.decode():
-            break
-    print(key, '\033[31m学习完成\033[0m')
-    sleep(1)
+    if json.loads(complete.content.decode())['result']['completed'] == '1':
+        print(key, '状态已完成，跳过')
+        continue
+    # 保存文档
+    doc_data = {
+        'courseId': f'{courseId}',
+        'itemId': itemid,
+        'recordType': 0,
+        'studyTime': 300
+    }
+    response = requests.post(
+        url=f'{BaseURL}/learnspace/course/study/learningTime_saveCourseItemLearnRecord.action',
+        headers=header, data=doc_data)
+    if '成功' in response.content.decode():
+        print(key, '完成')
+    else:
+        print(key, '保存失败')
+        set_trace()
 
-# 刷文档
-divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="doc")
+# 判断文本
+divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="text")
+# print(divs)
 itemids = {}
 for i in divs:
     itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
-    # 轮询item
-    for key in itemids.keys():
-        itemid = itemids[key]
-        # 判断文档是否学习完成
-        data2 = {
-            'params.courseId': f'{courseId}___',
-            'params.itemId': itemid
-        }
-        complete = requests.post(
-            url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
-            headers=header, data=data2)
-        if json.loads(complete.content.decode())['result']['completed'] == '1':
-            print(key, '状态已完成，跳过')
-            continue
-        # 保存文档
-        doc_data = {
-            'courseId': f'{courseId}',
-            'itemId': itemid,
-            'recordType': 0,
-            'studyTime': 300
-        }
-        response = requests.post(
-            url=f'{BaseURL}/learnspace/course/study/learningTime_saveCourseItemLearnRecord.action',
-            headers=header, data=doc_data)
-        if '成功' in response.content.decode():
-            print(key, '完成')
-        else:
-            print(key, '保存失败')
-            set_trace()
+# 轮询item
+print("获取所有图文id===>", itemids, "开始刷图文===>")
+for key in itemids.keys():
+    itemid = itemids[key]
+    # 判断文档是否学习完成
+    data2 = {
+        'params.itemId': itemid,
+        'params.courseId': f'{courseId}___'
+    }
+    complete = requests.post(
+        url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
+        headers=header, data=data2)
+    if json.loads(complete.content.decode())['result']['completed'] == '1':
+        print(key, '状态已完成，跳过')
+        continue
+    # 保存图文
+    doc_data = {
+        'courseId': courseId,
+        'studyTime': 300,
+        'itemId': itemid,
+        'recordType': 0
+    }
+    # 判断图文是否学习完成
+    response = requests.post(
+        url=f'{BaseURL}/learnspace/course/study/learningTime_saveCourseItemLearnRecord.action',
+        headers=header, data=doc_data)
+    if '成功' in response.content.decode():
+        print(key, '完成')
+    else:
+        print(key, '保存失败')
+        set_trace()
 
 # todo:
-#  刷课类型：itemtype="doc"、exam(测验)、topic(讨论)、video
+#  刷课类型：itemtype="doc(实现)"、exam(测验)、topic(讨论)、video(实现)、text(实现)
