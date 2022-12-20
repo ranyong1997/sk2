@@ -17,6 +17,9 @@ from urllib import request
 from http import cookiejar
 import json
 
+from Tools.scripts.which import msg
+from requests import Request, Session
+
 BASE_URL = 'https://sso.icve.com.cn'
 base_url_ = 'https://icve-mooc.icve.com.cn'
 # 登录
@@ -31,10 +34,8 @@ header = {
     'Referer': 'https://sso.icve.com.cn/sso/auth?mode=simple&source=2&redirect=https://icve-mooc.icve.com.cn/cms/courseDetails/index.htm?classId=0be8d630dbe5fe61a4dedc86799d3c7d',
     'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
     'X-Requested-With': 'XMLHttpRequest',
-    'Cookie': 'webtrn_cms=085401849537d69cc5716d58e7ca205b; whatysns=751f50efbd43e9d7505ebdaa9ac85ff3; webtrn=9eb19412ac0dbc2ebe3eccd20fd6e9c6; _abfpc=f26831421fa2dbe36317aa541ed619c05460effe_2.0; cna=f39af516d46dc05b2480a382baddeb0d; _uid=465596ae-2b2a-4f73-abf7-2e998c2fd451; acw_tc=707c9f6416714614952457425e5581dc356c71ea4cc97bca95b0e8896a58d6; JSESSIONID=2F1FB717B64329959534F94C99F504B3; token=d1c370cd-e2e6-4987-b155-acb936f6a1df; SERVERID=48585c58510becd3419d162580b2075a|1671461646|1671461495'
+    'Cookie': ''
 }
-
-
 def to_url(name, password):
     data = {
         "userName": name,
@@ -42,12 +43,13 @@ def to_url(name, password):
         "type": 1
     }
     token_ = requests.post(url=LOGIN_SYSTEM_URL, json=data, headers=header)
-    print(token_.json())
     code_url = f"{base_url_}/patch/zhzj/api_getUserInfo.action"
+    # https://icve-mooc.icve.com.cn/?token=ec832a0a-4aca-4cc7-88dd-33f4f8917cb7
     code_result = requests.post(url=code_url, data=token_.json()['data'], headers=header)
     cookiejar = code_result.cookies
     cookiedict = requests.utils.dict_from_cookiejar(cookiejar)
-    print(cookiedict)
+    cookie_str = json.dumps(cookiedict)
+    print(cookie_str)
 
 
 def login(name, password):  # 0.登录
