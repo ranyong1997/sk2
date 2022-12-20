@@ -17,7 +17,6 @@ from urllib import request
 from http import cookiejar
 import json
 
-from Tools.scripts.which import msg
 from requests import Request, Session
 
 BASE_URL = 'https://sso.icve.com.cn'
