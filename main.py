@@ -27,12 +27,12 @@ courseId = "1754b2c1a83f4268a668e959b9d3941a"
 # 评价课程id
 subjectId = "89008fd3260bd552a84da2fdc2ebd3a8"
 # 评价内容
-content = ['非常好', '非常非常的好', '课程精彩，通熟易懂','非常好 课程里的知识很丰富']
+content = ['非常好', '非常非常的好', '课程精彩，通熟易懂', '非常好 课程里的知识很丰富']
 header = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
     'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
     'Accept-Encodign': 'gzip, deflate, br',
-    'Cookie': 'JSESSIONID=6AF0A5207E7F87A454361797A8D603EC; _abfpc=1d466485af98ed5add63780f7b4ace668b0502d5_2.0; cna=d0ed267474e1abe89b79166eab802eac; ssxmod_itna=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2W7nDDsqtrDSxGKidDqxBWWl2He9v9vhiAClo2oDgnTP0Nfb9l74h=5llWeDHxY=DUpDTeqrDeW=D5xGoDPxDeDAQKiTDY4DdjpNv=DEDeKDRDAQDzwd/4h6z/G=DI3iDmTLDx7t9ITL5qeG2DGUeIkGx7qDMIeGXC0nPxDUTTZwMIMuixYPWQk0xxBQD7di9DYoUneDHzdN8ghDW0Gm10iQ5WOxqt+G+7Gme/RhA/GGi7xqLdYeGYr+1b5DAYDj1CiD=; ssxmod_itna2=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2WYikIqqhDlphxjb+xj8drKju5QqL3QD6mYmtQjBPeuDwjW3jAqvee4Yv8eCKdYcftOKCDXesC+iF4OqlKUycajU8B1dQ2BWuHqOQfcS6q/24ax9DdEc5C2mKCYIyGZY7GPhrOWp74jCvGErqCPKwh+pvGq0YN+Rqa0pAGW3BaQfHGL9bx0WkCclYaAF5QlC2hDH3202n7OIeTKAjiQO8F6cIhNgLoDQFODjKD+a95=nxbMAQOYpDK4D=; _uid=10b64d0f-5e25-46df-aa14-9e89b0f28624; aliyungf_tc=c9ec8cdfbda8bcd917ef59b8ff4bdd109baf6ad818c5b9c097917d41d0d78f5b; UNTYXLCOOKIE=dXNlci5pY3ZlLmNvbS5jbnx8MWRjZjNmMWY3OTI3NjM2MTVmYmNjM2Q3MDlmMjBhNDN8fDEzMjA2MjY5ODA0fHx6aHpq; learning-course=ms32amyox4hk6j6arvwmra_1754b2c1a83f4268a668e959b9d3941a___; jwplayer.volume=50; JSESSIONID=0E83027FAC1E707AFE9032C602BF79BF.learnspace_kfkc_aliyun; h_courseId=1754b2c1a83f4268a668e959b9d3941a; platform_flag=learnspace; learnspace_taolun=e546ee25771cb793b3354ca277163e90; sid=6a8bfaf1-d01e-4793-a638-082109d758b6; ST="EufDh1+COY0BfbNDo489T75IhLESzhlHQd2EWk9l2sI="; acw_tc=2f6fc12616715246022135707eb6bd8a1e9a9b7c509cc544522bd5e06fa1c9; token=91d9c9b5-ed6d-4883-81d2-99061f7029b6; rest_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbklkIjoiMTMyMDYyNjk4MDQiLCJzaXRlQ29kZSI6InpoemoiLCJ1c2VyX25hbWUiOiIxMzIwNjI2OTgwNCIsInBob3RvIjoibnVsbCIsInN1SWQiOiJtczMyYW15b3g0aGs2ajZhcnZ3bXJhIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TVFVERU5UIl0sImNsaWVudF9pZCI6IjIxMDgxODc3MTgiLCJ0cnVlTmFtZSI6IuWGieWLhyIsInN1ZElkIjoibXMzMmFteW94NGhrNmo2YXJ2d21yYSIsInJvbGVDb2RlIjoiMCIsInNjb3BlIjpbImFsbCJdLCJyb2xlTmFtZSI6IuWtpueUnyIsImV4cCI6MTY3MjczNDgwOCwianRpIjoiNmRjMDNkZTItMjE2Zi00ZjVmLWJkM2QtMzQ3N2YyMzJjMmUxIn0.elM8UJHeA_x45Ca7YmlCdax1a7fZ2kSFWFtpjuNuUOTNlutVVHq3xbZpWnwyQoTiyLPdTq2oqmInj_U7tr1gO4ROTdg4gKoDDXB-LmJwpinCxBQYziIh2kKV0tl1RHTZ7KudmqryV28gBxs2LxXoliluTMA_ic3Fnr8SlLi-KGksVC36iAVjF_SlR0T-AbEkGoIfV5jbQ-Vr6cM3jWUgvJD4phpS-tmkiEcrMPmK5HNtOLkoXeZt9JHG-iXE3RX3C-M76pPCfRq_xwdqSqEnUQIV9nBj_s0YCN2oaPFmSNNA_p1ObYsBMpOpOgPttUesX9jiDu1xUw2JxePYBWs0AQ; SERVERID=22293c637420c41b505231fd808611e8|1671525221|1671507410; JSESSIONID=650103F18C7B70C516927888E95BCE46; ST="OzvezF+BP115bg5zlCp4r7Z5T6zTGQTZwFfeLBoi/PM="; SERVERID=35549bc96e85f1047cf442f13900a400|1671526710|1671507410'
+    'Cookie': 'JSESSIONID=56E23126CF7ADBE59F22C72E2BBC8F54.learnspace_taolun_aliyun_001; _abfpc=1d466485af98ed5add63780f7b4ace668b0502d5_2.0; cna=d0ed267474e1abe89b79166eab802eac; ssxmod_itna=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2W7nDDsqtrDSxGKidDqxBWWl2He9v9vhiAClo2oDgnTP0Nfb9l74h=5llWeDHxY=DUpDTeqrDeW=D5xGoDPxDeDAQKiTDY4DdjpNv=DEDeKDRDAQDzwd/4h6z/G=DI3iDmTLDx7t9ITL5qeG2DGUeIkGx7qDMIeGXC0nPxDUTTZwMIMuixYPWQk0xxBQD7di9DYoUneDHzdN8ghDW0Gm10iQ5WOxqt+G+7Gme/RhA/GGi7xqLdYeGYr+1b5DAYDj1CiD=; ssxmod_itna2=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2WYikIqqhDlphxjb+xj8drKju5QqL3QD6mYmtQjBPeuDwjW3jAqvee4Yv8eCKdYcftOKCDXesC+iF4OqlKUycajU8B1dQ2BWuHqOQfcS6q/24ax9DdEc5C2mKCYIyGZY7GPhrOWp74jCvGErqCPKwh+pvGq0YN+Rqa0pAGW3BaQfHGL9bx0WkCclYaAF5QlC2hDH3202n7OIeTKAjiQO8F6cIhNgLoDQFODjKD+a95=nxbMAQOYpDK4D=; _uid=10b64d0f-5e25-46df-aa14-9e89b0f28624; aliyungf_tc=c9ec8cdfbda8bcd917ef59b8ff4bdd109baf6ad818c5b9c097917d41d0d78f5b; UNTYXLCOOKIE=dXNlci5pY3ZlLmNvbS5jbnx8MWRjZjNmMWY3OTI3NjM2MTVmYmNjM2Q3MDlmMjBhNDN8fDEzMjA2MjY5ODA0fHx6aHpq; learning-course=ms32amyox4hk6j6arvwmra_1754b2c1a83f4268a668e959b9d3941a___; jwplayer.volume=50; JSESSIONID=0E83027FAC1E707AFE9032C602BF79BF.learnspace_kfkc_aliyun; h_courseId=1754b2c1a83f4268a668e959b9d3941a; platform_flag=learnspace; learnspace_taolun=e546ee25771cb793b3354ca277163e90; sid=6a8bfaf1-d01e-4793-a638-082109d758b6; token=91d9c9b5-ed6d-4883-81d2-99061f7029b6; rest_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbklkIjoiMTMyMDYyNjk4MDQiLCJzaXRlQ29kZSI6InpoemoiLCJ1c2VyX25hbWUiOiIxMzIwNjI2OTgwNCIsInBob3RvIjoibnVsbCIsInN1SWQiOiJtczMyYW15b3g0aGs2ajZhcnZ3bXJhIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TVFVERU5UIl0sImNsaWVudF9pZCI6IjIxMDgxODc3MTgiLCJ0cnVlTmFtZSI6IuWGieWLhyIsInN1ZElkIjoibXMzMmFteW94NGhrNmo2YXJ2d21yYSIsInJvbGVDb2RlIjoiMCIsInNjb3BlIjpbImFsbCJdLCJyb2xlTmFtZSI6IuWtpueUnyIsImV4cCI6MTY3MjczNzg5OSwianRpIjoiNGY4MmQxMTctNjUzZS00M2FiLWI5MTgtMGVjNDVmZGYwYzgzIn0.Gb4Busjaqk3MSlPOOI8ItxhhQqnHG3C4c2cMK5YDBUF1Ruy2skFyPizAosvhWr5RtbnQU17YIajICNJgfnXhL9XR7rLR1SN2c6eO1MfLPuQELNKxnCTz8nLD23cyLiL637BliH9U7CEhgTceEaSyYWHqbfbp-j_TEhIzUudRY4-yHsuNCyTirvZHVjIR6k81vTf5rlq6sqnkHvHVJzsWExgoKreq03Ckugyz0mY6qonZnJDQ-f3X403N-bZZrfQyeJis29cXbsyUeNtLO_ckdyfeYzdXED7_wIEtk0lNxRMI5uuE7rCI2DFVVlSQw0cPQzjxA-MAO2kDstHx_Ud1QA; acw_tc=2f6fc11d16715300837038833e5dd1ba0168d2f4c95dd67e8d555ae8b32fde; SERVERID=f25cd604b9c4c08dc3b80e49f8c85d21|1671530184|1671507410; ST="xZP0QArbMp99EGZ29ba5pUFcLdaSL44hklZdXZx9UXI="'
 }
 
 # 获取limitId
@@ -215,6 +215,22 @@ soup = BeautifulSoup(res.content, 'lxml')
 # else:
 #
 #     print("错误了！", response.content.decode())
+
+# 主题讨论
+data = {
+    "action": "reply",
+    "curPage": 43,
+    "parentId": '402883e681197106018329f789602031',
+    "mainId": '402883e681197106018329f789602031',
+    "content": "<p>灌水！！！！！</p>",
+    "itemId": "402883a983232378018329f7892a1ddc",
+    "courseId": courseId,
+    "createUserId": "402883e5811970fc0183f4ae5cbf55e8",
+}
+response = requests.post(
+    url='https://course.icve.com.cn/taolun/learn/courseTopicAction.action', headers=header, data=data)
+if json.loads(response.content.decode())['success'] == True:
+    print("灌水成功")
 
 
 # -----------------未开发功能-----------------
