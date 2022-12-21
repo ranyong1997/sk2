@@ -1,128 +1,85 @@
-from bdb import set_trace
-
-import requests
-from bs4 import BeautifulSoup
-import re
 import os
+import csv
+import random
+import time
+import base64
+from io import BytesIO
+import requests
+from urllib import request
+from http import cookiejar
 import json
-import sys
 
-header = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
-    'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    'Accept-Encodign': 'gzip, deflate, br',
-    'Cookie': 'JSESSIONID=1866ECD51ED20EB8FC3372F0702F1223; _abfpc=1d466485af98ed5add63780f7b4ace668b0502d5_2.0; cna=d0ed267474e1abe89b79166eab802eac; ssxmod_itna=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2W7nDDsqtrDSxGKidDqxBWWl2He9v9vhiAClo2oDgnTP0Nfb9l74h=5llWeDHxY=DUpDTeqrDeW=D5xGoDPxDeDAQKiTDY4DdjpNv=DEDeKDRDAQDzwd/4h6z/G=DI3iDmTLDx7t9ITL5qeG2DGUeIkGx7qDMIeGXC0nPxDUTTZwMIMuixYPWQk0xxBQD7di9DYoUneDHzdN8ghDW0Gm10iQ5WOxqt+G+7Gme/RhA/GGi7xqLdYeGYr+1b5DAYDj1CiD=; ssxmod_itna2=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2WYikIqqhDlphxjb+xj8drKju5QqL3QD6mYmtQjBPeuDwjW3jAqvee4Yv8eCKdYcftOKCDXesC+iF4OqlKUycajU8B1dQ2BWuHqOQfcS6q/24ax9DdEc5C2mKCYIyGZY7GPhrOWp74jCvGErqCPKwh+pvGq0YN+Rqa0pAGW3BaQfHGL9bx0WkCclYaAF5QlC2hDH3202n7OIeTKAjiQO8F6cIhNgLoDQFODjKD+a95=nxbMAQOYpDK4D=; _uid=10b64d0f-5e25-46df-aa14-9e89b0f28624; aliyungf_tc=2cc934b53a9e2b0d308ff85854a818e7729d7650204be521a68ff8ed1c66f27d; alicfw=3773620543%7C2125521110%7C1328233537%7C1328232896; alicfw_gfver=v1.200309.1; learnspace_taolun=1399e65bc4193aadc0cd8bc6a27e6bf1; sid=cc227fa0-6364-400f-8076-2bca3396f99f; ST="nDi5rTR0LL+nMbpgO4avOeY7+kgdwXhJRPgpeFH/Abk="; jwplayer.volume=50; token=559151a8-273e-4a1d-9e44-fb8508f4eeba; UNTYXLCOOKIE=dXNlci5pY3ZlLmNvbS5jbnx8OWNmYjkwZDIxOGUzNDBlZmE5MzFjNjY3YWZhNmI0N2R8fDE3NzIzMDUwMTk5fHx6aHpq; learning-course=402883a984e8340d0184eaa8724c07ba_1754b2c1a83f4268a668e959b9d3941a___; acw_tc=2f6fc12516714426077021807ef84435687c50f7a08d5a913fd3f218f9361b; SERVERID=16f30ddb1f23abc6369b5e279368fe9f|1671443105|1671413934',
-}
+from requests import Request, Session
 
-# 获得limitId
-res = requests.get(
-    url='https://course.icve.com.cn/learnspace/learn/learn/templateeight/index.action?params.courseId=1754b2c1a83f4268a668e959b9d3941a___¶ms.templateType=8¶ms.templateStyleType=0¶ms.template=templateeight¶ms.classId=¶ms.tplRoot=learn',
-    headers=header)
-patter = re.compile('limitId.*;')
-try:
-    limitId = patter.search(res.content.decode()).group().split('"')[1]
-except:
-    print('\033[31m获取limitId失败，检查Cookie\033[0m')
-    exit()
+BASE_URL = 'https://sso.icve.com.cn'
+base_url_ = 'https://icve-mooc.icve.com.cn'
+# 登录
+LOGIN_SYSTEM_URL = f"{BASE_URL}/data/userLogin"
 
-# 获得itemId
-res = requests.get(
-    'https://course.icve.com.cn/learnspace/learn/learn/templateeight/courseware_index.action?params.courseId=1754b2c1a83f4268a668e959b9d3941a___',
-    headers=header)
-soup = BeautifulSoup(res.content, 'lxml')
-divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="video")
-itemids = {}
-for i in divs:
-    itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
 
-# 开始刷课
-for key in itemids.keys():
-    itemid = itemids[key]
-    data2 = {
-        'itemId': itemid,
-        'videoTotalTime': '00:10:00'
-    }
-    total = requests.post(url='https://course.icve.com.cn/learnspace/course/plugins/cloud_updateVideoTotalTime.action',
-                          headers=header, data=data2)
+class Login:
+    def __init__(self):
 
-    # 判断视频是否学习完成
-    data2 = {
-        'params.courseId': '1754b2c1a83f4268a668e959b9d3941a___',
-        'params.itemId': itemid
-    }
-    complete = requests.post(
-        url='https://course.icve.com.cn/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
-        headers=header, data=data2)
-    if json.loads(complete.content.decode())['result']['completed'] == '1':
-        print(key, '视频状态已完成，跳过')
-        continue
+        self.header = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+            'Accept': "application/json, text/javascript, */*; q=0.01",
+            'Accept-Encodign': 'gzip, deflate, br',
+            'Content-Type': 'application/json',
+            'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+            'Referer': 'https://sso.icve.com.cn/sso/auth?mode=simple&source=2&redirect=https://icve-mooc.icve.com.cn/cms/courseDetails/index.htm?classId=0be8d630dbe5fe61a4dedc86799d3c7d',
+            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+            'X-Requested-With': 'XMLHttpRequest',
+            'Cookie': ''
+        }
+        self.s = requests.Session()
+        self.Cookie = ''
 
-    start = 0
-    end = 0
-    # 轮询片段
-    while True:
-        start = end
-        end = start + 10
-        # 单个视频片段状态保存循环
-        while True:
-            cmd = os.popen('node ./test.js %s %s %s' % (itemid, start, end))
-            studyrecord = cmd.read().strip('\n')
-            cmd.close()
+    def login(self, name, password):
+        login_fail_num = 0
+        print(f'正在登录账号:【{name}】')
+        while login_fail_num < 6:
             data = {
-                'limitId': limitId,
-                'studyRecord': studyrecord
+                "userName": name,
+                "password": password,
+                "type": 1
             }
-            res2 = requests.post(
-                url='https://course.icve.com.cn/learnspace/course/study/learningTime_saveVideoLearnDetailRecord.action',
-                headers=header, data=data)
-            if '保存成功' in res2.content.decode() or '总时长' in res2.content.decode():
-                print("\r", end="")
-                print(key, "\033[32m学习时长: {}秒 \033[0m".format(end), end="")
-                sys.stdout.flush()
-                break
-            else:
-                pass
+            try:
+                res = self.s.post(url=LOGIN_SYSTEM_URL, json=data, headers=self.header)
+                cookies = res.cookies
+                cookie = requests.utils.dict_from_cookiejar(cookies)
+                # print(res.json())  # {'code': 200, 'msg': 'ok', 'data': '2e57fa48-7276-4509-91fc-c98bc028778e', 'sign': None}
 
-        if '总时长' in res2.content.decode():
-            break
-    print(key, '\033[31m学习完成\033[0m')
+                if res.json()['code'] == 200:
+                    print(f"==================== 登陆成功:【{str(name)}】 ====================\n")
+                    print(self.s.cookies.set('Cookie', cookie))
+                    return self.s.cookies.set('Cookie', cookie)
+                #     获取limitId
 
-# 刷文档内容
+                else:
+                    print("\t\t--->", res.json()['msg'])
+            except Exception as e:
+                login_fail_num += 1
+                print("获取token失败: \n{0}".format(e))
+        raise Exception(f"账号:{str(name)} 登录失败")
 
-# 取出itemid
-divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="doc")
-itemids = {}
-for i in divs:
-    itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
+    def get_user_all(self):
+        """读取csv至字典"""
+        with open("data/data.csv", "r", encoding='gbk') as csvFile:
+            # with open("../data/data.csv", "r", encoding='gbk') as csvFile:
+            reader = csv.reader(csvFile)
+            # 建立空字典
+            result = {}
+            for item in reader:
+                # 忽略第一行
+                if reader.line_num == 1:
+                    continue
+                result[item[0]] = item[1]
+        return result
 
-# 轮询item
-for key in itemids.keys():
-    itemid = itemids[key]
 
-    # 判断文档是否学习完成
-    data2 = {
-        'params.courseId': '1754b2c1a83f4268a668e959b9d3941a___',
-        'params.itemId': itemid
-    }
-    complete = requests.post(
-        url='https://course.icve.com.cn/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
-        headers=header, data=data2)
-    if json.loads(complete.content.decode())['result']['completed'] == '1':
-        print(key, '状态已完成，跳过')
-        continue
-
-    # 保存文档
-    doc_data = {
-        'courseId': '1754b2c1a83f4268a668e959b9d3941a',
-        'itemId': itemid,
-        'recordType': 0,
-        'studyTime': 300
-    }
-    response = requests.post(
-        url='https://course.icve.com.cn/learnspace/course/study/learningTime_saveCourseItemLearnRecord.action',
-        headers=header, data=doc_data)
-    if '成功' in response.content.decode():
-        print(key, '完成')
-    else:
-        print(key, '保存失败')
-        set_trace()
+if __name__ == '__main__':
+    login = Login()
+    for key, value in login.get_user_all().items():
+        username = key
+        password = value
+        login.login(name=username, password=password)
