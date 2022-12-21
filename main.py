@@ -45,7 +45,7 @@ header = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
     'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
     'Accept-Encodign': 'gzip, deflate, br',
-    'Cookie': 'JSESSIONID=5500A1AED5AC4BBA2CD571FC0AC11E1D.learnspace_taolun_aliyun_001; _abfpc=1d466485af98ed5add63780f7b4ace668b0502d5_2.0; cna=d0ed267474e1abe89b79166eab802eac; ssxmod_itna=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2W7nDDsqtrDSxGKidDqxBWWl2He9v9vhiAClo2oDgnTP0Nfb9l74h=5llWeDHxY=DUpDTeqrDeW=D5xGoDPxDeDAQKiTDY4DdjpNv=DEDeKDRDAQDzwd/4h6z/G=DI3iDmTLDx7t9ITL5qeG2DGUeIkGx7qDMIeGXC0nPxDUTTZwMIMuixYPWQk0xxBQD7di9DYoUneDHzdN8ghDW0Gm10iQ5WOxqt+G+7Gme/RhA/GGi7xqLdYeGYr+1b5DAYDj1CiD=; ssxmod_itna2=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2WYikIqqhDlphxjb+xj8drKju5QqL3QD6mYmtQjBPeuDwjW3jAqvee4Yv8eCKdYcftOKCDXesC+iF4OqlKUycajU8B1dQ2BWuHqOQfcS6q/24ax9DdEc5C2mKCYIyGZY7GPhrOWp74jCvGErqCPKwh+pvGq0YN+Rqa0pAGW3BaQfHGL9bx0WkCclYaAF5QlC2hDH3202n7OIeTKAjiQO8F6cIhNgLoDQFODjKD+a95=nxbMAQOYpDK4D=; _uid=10b64d0f-5e25-46df-aa14-9e89b0f28624; alicfw=742397870%7C2123194196%7C1328233537%7C1328232896; alicfw_gfver=v1.200309.1; acw_tc=76b20f8d16716122224766566e1184c1b4e325539718c4e62fbbe28170a00d; aliyungf_tc=2c633150426d3d92b394e7f1fc30cfeaa4b6e07c81132a04c71e734c6909d4d7; learnspace_taolun=e546ee25771cb793b3354ca277163e90; sid=b459231b-06b5-4546-9904-fe75bb046027; h_courseId=1754b2c1a83f4268a668e959b9d3941a; platform_flag=learnspace; rest_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbklkIjoiMTMyMDYyNjk4MDQiLCJzaXRlQ29kZSI6InpoemoiLCJ1c2VyX25hbWUiOiIxMzIwNjI2OTgwNCIsInBob3RvIjoibnVsbCIsInN1SWQiOiJtczMyYW15b3g0aGs2ajZhcnZ3bXJhIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TVFVERU5UIl0sImNsaWVudF9pZCI6IjIxMDgxODc3MTgiLCJ0cnVlTmFtZSI6IuWGieWLhyIsInN1ZElkIjoibXMzMmFteW94NGhrNmo2YXJ2d21yYSIsInJvbGVDb2RlIjoiMCIsInNjb3BlIjpbImFsbCJdLCJyb2xlTmFtZSI6IuWtpueUnyIsImV4cCI6MTY3MjgyMzE4MSwianRpIjoiMGQxYWE1ZDgtNTQ1YS00MDAwLWI4NmUtYzE0ZGI5M2ZkZjZjIn0.N4VKa429vVYOM_vCaIiN-Om1lVF4-q4udnbUjlEptCAoEEZQlKnnwIkANo7OjXYiMIkdKwJVt4tm9tSM3lcPIuaJ-MiMA1anegkfelEL1rKG7YEXE3VzWCI3NAwu06oy7CUzP326OAdLlLD-0ybkxyOQOnO5xZgLHsnHx2K1x1O-L-QO_gKoG816h73cfhMUPRIuL5Jor0cIaUvU7qvgKrTOQ_wT0hRisUuRfkXHLftErn0tpZuA_Ni7DxPGq3--K_NM9OURd82BZKDlUVEDgVrzVUa1pC_7DnY-jsKnJ9e_1mUu5BfTkbJyDzLTt8MuBKPTJWbjIEi7_V5P6Bep7A; token=0824c4f3-853f-4b32-b0e3-8a6392e09e6f; UNTYXLCOOKIE="dXNlci5pY3ZlLmNvbS5jbnx8OTBmM2MxNDdmMzVjY2Q1YjQyY2VmOTRkMGI1ZmNiNTZ8fHdqazA5MjE1N3x8emh6ag=="; learning-course=402883e484ed33dc0184f1bafe7414a2_1754b2c1a83f4268a668e959b9d3941a___; ST="F+658rrQnSJX8LzhWvAh1YKLKrGPSFtBqTBHzbFBXo8="; SERVERID=48585c58510becd3419d162580b2075a|1671613979|1671612642'
+    'Cookie': 'JSESSIONID=24866ADEE72AA45A42AAD89A3FFB8593; aliyungf_tc=2fc0927f5a3ee5d612d75f5690676ab1366280ad5c6a2dc2aa3d1b76283c9f66; JSESSIONID=59CE88C8727A464FFA345A6758817E7F.learnspace_kfkc_aliyun; _abfpc=f26831421fa2dbe36317aa541ed619c05460effe_2.0; cna=f39af516d46dc05b2480a382baddeb0d; _uid=d2b7a2af-4691-4a84-b203-65ecfcab3e22; jwplayer.volume=50; learnspace_taolun=0be5d730b745f30657fe2554fde22ded; sid=f03db508-22eb-4047-9238-88db953fa0da; h_courseId=1754b2c1a83f4268a668e959b9d3941a; platform_flag=learnspace; UNTYXLCOOKIE=dXNlci5pY3ZlLmNvbS5jbnx8MWRjZjNmMWY3OTI3NjM2MTVmYmNjM2Q3MDlmMjBhNDN8fDEzMjA2MjY5ODA0fHx6aHpq; learning-course=ms32amyox4hk6j6arvwmra_1754b2c1a83f4268a668e959b9d3941a___; rest_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbklkIjoiMTMyMDYyNjk4MDQiLCJzaXRlQ29kZSI6InpoemoiLCJ1c2VyX25hbWUiOiIxMzIwNjI2OTgwNCIsInBob3RvIjoibnVsbCIsInN1SWQiOiJtczMyYW15b3g0aGs2ajZhcnZ3bXJhIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TVFVERU5UIl0sImNsaWVudF9pZCI6IjIxMDgxODc3MTgiLCJ0cnVlTmFtZSI6IuWGieWLhyIsInN1ZElkIjoibXMzMmFteW94NGhrNmo2YXJ2d21yYSIsInJvbGVDb2RlIjoiMCIsInNjb3BlIjpbImFsbCJdLCJyb2xlTmFtZSI6IuWtpueUnyIsImV4cCI6MTY3Mjc1MDY3NywianRpIjoiODE0NzZlMTMtMmU1YS00ZDBlLTk5MmMtY2M4NDc4ZjgzNjlmIn0.YDLYhcmxUWVZEJCYZHKea4OARmPQI0VDJy4EJ81zFvvG1BKbErxpSPQX2niMhGlYrPSdLFx97haf5Xtg2L8T-Qn5XTMiWAgtSwelP9r1d308tHw9L3H1wnXZjMfp3Pl6X2Uh3UlDtZMzVpEFlvlA8uiI4OyYYf-1HJ8ibcvUAuzwuUI_DdzYjIeosrH3ojwZebxjoBNUV_HmObaZzDRCjTXbuk98EsKm4N2Zk1V4VsVJ4ZmMWVKv3NvChBZuhDhm6wRCohxNfXjrJwqPQ2fLi5pHi6QSw8Gr7NmSxarOTJUQb2G-Q5G5wxp8NFyq6WzsJx_KH5HdLfvvlc9GGv5SnA; ssxmod_itna=QqGxnDRDcDg0iQNGHIgq7qBIvR7KsOQqbY7bNDl2oxA5D8D6DQeGTb2KDBiWbjiiHIW3Yi4qXae3USbb1qKUYaNebDneG0DQKGmDBKDSDWKD9mAT4GGfxBYDQxAYDGDDPcDGqsg2D7OzzM=9CHZ0sDlezwZPCuODDUlDhwPFFp=HQup2Pr4i3EnKDXP3Dv2yCG6cw9PYs13rxEWGeapI4LQ0qS0GxK1hxbmrK3lMxsDM5HQG44o43n/QxDDcqeQx0YYD; ssxmod_itna2=QqGxnDRDcDg0iQNGHIgq7qBIvR7KsOQqbY7D618ChD05bx03Nee2YDB0in8kTLAHQkBCZ7BjQ6t/To67Ob9SbQf7F+7I4Eq+6ZhRUrI1OOQqChIKZans1tTf=D6CC0Dhcp5kUBR5vdd08rXDpfixaRiqXf0wKWXs3M5Et32HUhQu7TEjejjUj45uzWok/nQo=MbInnu3rSfjeknH5Cd9/qvOlLPKWkiiIOyxs7HL3ThImf+O7kW891D+qbx2/1iCS4xaHYK2WRqXfn9tyIgBU40bojcKu+rP1yW/Spt9hvZUnLBUWZhjlXsrdsPLRDwuYPjaodEowpExrpVhIdorPKLtO09aXqpN=av6QvADEvQvynUAYRqhI/lrN4oBh3BgI5n4VgfRa05Z5f033EU1cmpBqEjd/prhRR19+WRtpfEs2XrhKaOW9xYW1Nz14DQK4iDqG9E3RQY09DdnjeOEh7/0iXhQAh=Qi5F+p+k=BPxD08DiQzCDqmhxYD==; ST="Pg/FThCSwk3Qirn22EVmk3+g+inhOFCSbvOmiBgaJ6rkdCdZnHpfPw=="; token=73c063a3-2a91-4c65-9808-d34108ab6ad6; alicfw=477608625%7C2123118199%7C1328233664%7C1328233315; alicfw_gfver=v1.200309.1; acw_tc=76b20f8f16716322626954214e2634dfd4a1d68f75185e7ab47aa16004a729; SERVERID=20157a9178d6239df0e552bdb97bd90e|1671633275|1671244551'
 }
 
 # 获取limitId
@@ -55,13 +55,13 @@ res = requests.get(
 # print(res.text)
 patter = re.compile('limitId.*;')
 
-# 获取userId
-res1 = requests.get(
-    url='https://course.icve.com.cn/taolun/learn/courseTopicAction.action?action=item&itemId=402883a983232378018329f7892a1ddc&courseId=1754b2c1a83f4268a668e959b9d3941a&ssoUserId=wjk092157&realName=%25E8%2583%25A1%25E4%25B8%25BD%25E5%258D%258E&loginType=0&userPhoto=&topicModule=learn_one&topicModuleColour=blue&titleFlag=1&templateType=8&desensitizationDisplay=true',
-    # url='https://course.icve.com.cn/taolun/learn/courseTopicAction.action?action=item&itemId=402883a983232378018329f7892a1ddc&courseId=1754b2c1a83f4268a668e959b9d3941a&ssoUserId=wjk092157&realName=%25E8%2583%25A1%25E4%25B8%25BD%25E5%258D%258E&loginType=0&userPhoto=&topicModule=learn_one&topicModuleColour=blue&titleFlag=1&templateType=8&desensitizationDisplay=true',
-    headers=header)
-print(res1.text)
-patter = re.compile('limitId.*;')
+# # 获取userId
+# res1 = requests.get(
+#     url='https://course.icve.com.cn/taolun/learn/courseTopicAction.action?action=item&itemId=402883a983232378018329f7892a1ddc&courseId=1754b2c1a83f4268a668e959b9d3941a&ssoUserId=wjk092157&realName=%25E8%2583%25A1%25E4%25B8%25BD%25E5%258D%258E&loginType=0&userPhoto=&topicModule=learn_one&topicModuleColour=blue&titleFlag=1&templateType=8&desensitizationDisplay=true',
+#     # url='https://course.icve.com.cn/taolun/learn/courseTopicAction.action?action=item&itemId=402883a983232378018329f7892a1ddc&courseId=1754b2c1a83f4268a668e959b9d3941a&ssoUserId=wjk092157&realName=%25E8%2583%25A1%25E4%25B8%25BD%25E5%258D%258E&loginType=0&userPhoto=&topicModule=learn_one&topicModuleColour=blue&titleFlag=1&templateType=8&desensitizationDisplay=true',
+#     headers=header)
+# print(res1.text)
+# patter = re.compile('limitId.*;')
 try:
     limitId = patter.search(res.content.decode()).group().split('"')[1]
 except Exception:
@@ -77,197 +77,201 @@ soup = BeautifulSoup(res.content, 'lxml')
 # print("soup:", soup)
 
 # ----------------------------------分割线----------------------------------
-# # 判断视频
-# divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="video")
-# # 视频的id
-# itemids = {}
-# for i in divs:
-#     itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
-# print("获取所有视频id===>", itemids, "开始刷课===>")
-# # print("itemids.keys():", itemids.keys())
-# # 开始刷课
-# for key in itemids.keys():
-#     itemid = itemids[key]
-#     print("itemid:", itemid)
-#     itemid = itemids[key]
-#     data2 = {
-#         'itemId': itemid,
-#         'videoTotalTime': '00:10:00'
-#     }
-#     total = requests.post(url=f'{BaseURL}/learnspace/course/plugins/cloud_updateVideoTotalTime.action',
-#                           headers=header, data=data2)
-#     # 判断视频是否学习完成
-#     data2 = {
-#         'params.courseId': f'{courseId}___',
-#         'params.itemId': itemid
-#     }
-#     complete = requests.post(
-#         url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
-#         headers=header, data=data2)
-#     print("code:", complete.content.decode())
-#     # 判断返回值 1表示学习完成，2表示部分学习，0表示内容没有学习过
-#     if json.loads(complete.content.decode())['result']['completed'] == '1':
-#         print(key, '视频状态已完成，跳过')
-#         continue
-#     # 刷课
-#     start = 0
-#     end = 0
-#     # 轮询片段
-#     while True:
-#         start = end
-#         # 每次增加10秒
-#         end = start + 20
-#         while True:
-#             cmd = os.popen('node ./test.js %s %s %s' % (itemid, start, end))
-#             # 原始字符串的开头和结尾删除给定的字符
-#             studyrecord = cmd.read().strip('\n')
-#             cmd.close()
-#             data = {
-#                 "limitId": limitId,
-#                 "studyRecord": studyrecord
-#             }
-#             res2 = requests.post(
-#                 url=f'{BaseURL}/learnspace/course/study/learningTime_saveVideoLearnDetailRecord.action',
-#                 headers=header, data=data
-#             )
-#             if '保存成功' in res2.content.decode() or '总时长' in res2.content.decode():
-#                 print("\r", end="")
-#                 print(key, "\033[32m学习时长: {}秒 \033[0m".format(end), end="")
-#                 sys.stdout.flush()
-#                 break
-#             else:
-#                 pass
-#         if '总时长' in res2.content.decode():
-#             break
-#     print(key, '\033[31m学习完成\033[0m')
-#     time.sleep(1)
-#
-# # 判断文档
-# divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="doc")
-# itemids = {}
-# for i in divs:
-#     itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
-# # 轮询item
-# print("获取所有文档id===>", itemids, "开始刷文档===>")
-# for key in itemids.keys():
-#     itemid = itemids[key]
-#     # 判断文档是否学习完成
-#     data2 = {
-#         'params.courseId': f'{courseId}___',
-#         'params.itemId': itemid
-#     }
-#     complete = requests.post(
-#         url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
-#         headers=header, data=data2)
-#     # 判断返回值 1表示学习完成，2表示部分学习，0表示内容没有学习过
-#     if json.loads(complete.content.decode())['result']['completed'] == '1':
-#         print(key, '状态已完成，跳过')
-#         continue
-#     # 保存文档
-#     doc_data = {
-#         'courseId': f'{courseId}',
-#         'itemId': itemid,
-#         'recordType': 0,
-#         'studyTime': 300
-#     }
-#     response = requests.post(
-#         url=f'{BaseURL}/learnspace/course/study/learningTime_saveCourseItemLearnRecord.action',
-#         headers=header, data=doc_data)
-#     if '成功' in response.content.decode():
-#         print(key, '\033[31m文档完成\033[0m')
-#     else:
-#         print(key, '保存失败')
-#         set_trace()
-#
-# # 判断文本
-# divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="text")
-# # print(divs)
-# itemids = {}
-# for i in divs:
-#     itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
-# # 轮询item
-# print("获取所有图文id===>", itemids, "开始刷图文===>")
-# for key in itemids.keys():
-#     itemid = itemids[key]
-#     # 判断文档是否学习完成
-#     data2 = {
-#         'params.itemId': itemid,
-#         'params.courseId': f'{courseId}___'
-#     }
-#     complete = requests.post(
-#         url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
-#         headers=header, data=data2)
-#     # 判断返回值 1表示学习完成，2表示部分学习，0表示内容没有学习过
-#     if json.loads(complete.content.decode())['result']['completed'] == '1':
-#         print(key, '状态已完成，跳过')
-#         continue
-#     # 保存图文
-#     doc_data = {
-#         'courseId': courseId,
-#         'studyTime': 300,
-#         'itemId': itemid,
-#         'recordType': 0
-#     }
-#     # 判断图文是否学习完成
-#     response = requests.post(
-#         url=f'{BaseURL}/learnspace/course/study/learningTime_saveCourseItemLearnRecord.action',
-#         headers=header, data=doc_data)
-#     if json.loads(complete.content.decode())['result']['completed'] == '1':
-#         print(key, '\033[31m图文完成\033[0m')
-#     else:
-#         print(key, '保存失败')
-# #         set_trace()
-#
-# # 课程评价
-# data = {"params": {f"subjectId": f"{subjectId}", "star": 5}}
-# response = requests.post(
-#     url=f'{BaseURL}/discuss-api/discussStar/saveStar', headers=header, json=data)
-# if json.loads(response.content.decode())['code'] == '1':
-#     print("进行评价")
-#     create_data = {
-#         "bean": {"subjectId": f"{subjectId}", "content": f"{random.choice(content)}", "thumbImgs": "",
-#                  "originalImgs": ""}}
-#     response = requests.post(
-#         url=f"{BaseURL}/discuss-api/discussComment/create",
-#         headers=header, json=create_data
-#     )
-#     if json.loads(response.content.decode())['code'] == '1':
-#         print("课程评价完成！")
-#         print(key, '\033[31m课程评价完成\033[0m')
-#     else:
-#         print("错误了！", response.content.decode())
-# else:
-#     print("错误了！", response.content.decode())
+# 判断视频
+divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="video")
+# 视频的id
+itemids = {}
+for i in divs:
+    itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
+print("获取所有视频id===>", itemids, "开始刷课===>")
+# print("itemids.keys():", itemids.keys())
+# 开始刷课
+for key in itemids.keys():
+    itemid = itemids[key]
+    print("itemid:", itemid)
+    itemid = itemids[key]
+    data2 = {
+        'itemId': itemid,
+        'videoTotalTime': '00:10:00'
+    }
+    total = requests.post(url=f'{BaseURL}/learnspace/course/plugins/cloud_updateVideoTotalTime.action',
+                          headers=header, data=data2)
+    # 判断视频是否学习完成
+    data2 = {
+        'params.courseId': f'{courseId}___',
+        'params.itemId': itemid
+    }
+    complete = requests.post(
+        url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
+        headers=header, data=data2)
+    print("code:", complete.content.decode())
+    # 判断返回值 1表示学习完成，2表示部分学习，0表示内容没有学习过
+    if json.loads(complete.content.decode())['result']['completed'] == '1':
+        print(key, '视频状态已完成，跳过')
+        continue
+    # 刷课
+    start = 0
+    end = 0
+    # 轮询片段
+    while True:
+        start = end
+        # 每次增加10秒
+        end = start + 20
+        while True:
+            cmd = os.popen('node ./test.js %s %s %s' % (itemid, start, end))
+            # 原始字符串的开头和结尾删除给定的字符
+            studyrecord = cmd.read().strip('\n')
+            cmd.close()
+            data = {
+                "limitId": limitId,
+                "studyRecord": studyrecord
+            }
+            res2 = requests.post(
+                url=f'{BaseURL}/learnspace/course/study/learningTime_saveVideoLearnDetailRecord.action',
+                headers=header, data=data
+            )
+            if '保存成功' in res2.content.decode() or '总时长' in res2.content.decode():
+                print("\r", end="")
+                print(key, "\033[32m学习时长: {}秒 \033[0m".format(end), end="")
+                sys.stdout.flush()
+                break
+            else:
+                pass
+        if '总时长' in res2.content.decode():
+            break
+    print(key, '\033[31m学习完成\033[0m')
+    time.sleep(1)
 
-# # 主题讨论
-# divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="topic")
-# # print(divs)
-# itemids = {}
-# for i in divs:
-#     itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
-# # 轮询item
-# print("获取所有讨论id===>", itemids, "开始刷讨论===>")
-# for key in itemids.keys():
-#     itemid = itemids[key]
-#     print(itemid)
-#     data = {
-#         "action": "reply",
-#         "curPage": 999,
-#         "parentId": '402883e681197106018329f789602031',
-#         "mainId": '402883e681197106018329f789602031',
-#         "content": "{}".format(random.choice(Irrigation_content)),
-#         "itemId": itemid,
-#         "courseId": courseId,
-#         "createUserId": "402883ab84ce0af7018532b0aa6e5dcf",  # 用户id，需要提前获取
-#     }
-#     response = requests.post(
-#         url=f'{BaseURL}/taolun/learn/courseTopicAction.action', headers=header, data=data)
-#     print(json.loads(response.content.decode()))
-#     if json.loads(response.content.decode())['success'] == True:
-#         print("灌水成功")
-#         print(key, '\033[31m灌水完成\033[0m')
-#     else:
-#         print("错误了！", response.content.decode())
+# 判断文档
+divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="doc")
+itemids = {}
+for i in divs:
+    itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
+# 轮询item
+print("获取所有文档id===>", itemids, "开始刷文档===>")
+for key in itemids.keys():
+    itemid = itemids[key]
+    # 判断文档是否学习完成
+    data2 = {
+        'params.courseId': f'{courseId}___',
+        'params.itemId': itemid
+    }
+    complete = requests.post(
+        url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
+        headers=header, data=data2)
+    # 判断返回值 1表示学习完成，2表示部分学习，0表示内容没有学习过
+    if json.loads(complete.content.decode())['result']['completed'] == '1':
+        print(key, '状态已完成，跳过')
+        continue
+    # 保存文档
+    doc_data = {
+        'courseId': f'{courseId}',
+        'itemId': itemid,
+        'recordType': 0,
+        'studyTime': 300
+    }
+    response = requests.post(
+        url=f'{BaseURL}/learnspace/course/study/learningTime_saveCourseItemLearnRecord.action',
+        headers=header, data=doc_data)
+    if '成功' in response.content.decode():
+        print(key, '\033[31m文档完成\033[0m')
+    else:
+        print(key, '保存失败')
+        set_trace()
+time.sleep(1)
+
+# 判断文本
+divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="text")
+# print(divs)
+itemids = {}
+for i in divs:
+    itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
+# 轮询item
+print("获取所有图文id===>", itemids, "开始刷图文===>")
+for key in itemids.keys():
+    itemid = itemids[key]
+    # 判断文档是否学习完成
+    data2 = {
+        'params.itemId': itemid,
+        'params.courseId': f'{courseId}___'
+    }
+    complete = requests.post(
+        url=f'{BaseURL}/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json',
+        headers=header, data=data2)
+    # 判断返回值 1表示学习完成，2表示部分学习，0表示内容没有学习过
+    if json.loads(complete.content.decode())['result']['completed'] == '1':
+        print(key, '状态已完成，跳过')
+        continue
+    # 保存图文
+    doc_data = {
+        'courseId': courseId,
+        'studyTime': 300,
+        'itemId': itemid,
+        'recordType': 0
+    }
+    # 判断图文是否学习完成
+    response = requests.post(
+        url=f'{BaseURL}/learnspace/course/study/learningTime_saveCourseItemLearnRecord.action',
+        headers=header, data=doc_data)
+    if json.loads(complete.content.decode())['result']['completed'] == '1':
+        print(key, '\033[31m图文完成\033[0m')
+    else:
+        print(key, '保存失败')
+time.sleep(1)
+
+# 课程评价
+data = {"params": {f"subjectId": f"{subjectId}", "star": 5}}
+response = requests.post(
+    url=f'{BaseURL}/discuss-api/discussStar/saveStar', headers=header, json=data)
+if json.loads(response.content.decode())['code'] == '1':
+    print("进行评价")
+    create_data = {
+        "bean": {"subjectId": f"{subjectId}", "content": f"{random.choice(content)}", "thumbImgs": "",
+                 "originalImgs": ""}}
+    response = requests.post(
+        url=f"{BaseURL}/discuss-api/discussComment/create",
+        headers=header, json=create_data
+    )
+    if json.loads(response.content.decode())['code'] == '1':
+        print("课程评价完成！")
+        print(key, '\033[31m课程评价完成\033[0m')
+    else:
+        print("错误了！", response.content.decode())
+else:
+    print("错误了！", response.content.decode())
+time.sleep(1)
+
+# 主题讨论
+divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="topic")
+# print(divs)
+itemids = {}
+for i in divs:
+    itemids[i.find(class_="s_pointti").text] = i['id'].strip("s_point_")
+# 轮询item
+print("获取所有讨论id===>", itemids, "开始刷讨论===>")
+for key in itemids.keys():
+    itemid = itemids[key]
+    print(itemid)
+    data = {
+        "action": "reply",
+        "curPage": 999,
+        "parentId": '402883e681197106018329f789602031',
+        "mainId": '402883e681197106018329f789602031',
+        "content": "{}".format(random.choice(Irrigation_content)),
+        "itemId": itemid,
+        "courseId": courseId,
+        "createUserId": "402883ab84ce0af7018532b0aa6e5dcf",  # 用户id，需要提前获取
+    }
+    response = requests.post(
+        url=f'{BaseURL}/taolun/learn/courseTopicAction.action', headers=header, data=data)
+    print(json.loads(response.content.decode()))
+    if json.loads(response.content.decode())['success'] == True:
+        print("灌水成功")
+        print(key, '\033[31m灌水完成\033[0m')
+    else:
+        print("错误了！", response.content.decode())
+time.sleep(1)
+
 
 # -----------------未开发功能-----------------
 # # 判断音频
@@ -281,6 +285,13 @@ soup = BeautifulSoup(res.content, 'lxml')
 # for key in itemids.keys():
 #     itemid = itemids[key]
 #     print("itemid:", itemid)
+#     data2 = {
+#         'params.courseId': f'{courseId}___',
+#         'params.itemId': itemid,
+#         'params.videoTotalTime': '00:10:00'
+#     }
+#     total = requests.post(url=f'{BaseURL}/learnspace/learn/learn/common/audio_learn_record_detail.action',
+#                           headers=header, data=data2)
 #     # 判断音频是否学习完成
 #     data2 = {
 #         'params.courseId': f'{courseId}___',
@@ -297,26 +308,34 @@ soup = BeautifulSoup(res.content, 'lxml')
 #     # 刷音频
 #     print(f"检测到未刷音频{key}，开始刷音频")
 #     while True:
+#         doc_data = {
+#             'courseId': f'{courseId}',
+#             'itemId': itemid,
+#             'studyTime': 300
+#         }
+#         response = requests.post(
+#             url=f'{BaseURL}/learnspace/course/study/learningTime_saveLearningTime.action',
+#             headers=header, data=doc_data)
 #         start = 0
 #         end = 0
 #         # 轮询片段
 #         while True:
 #             start = end
 #             # 每次增加10秒
-#             end = start + 300
+#             end = start + 20
 #             cmd = os.popen('node ./test.js %s %s %s' % (itemid, start, end))
 #             # 原始字符串的开头和结尾删除给定的字符
 #             # studyRecord参数就是将数据格式化后序列化再进行AES加密得到的字符串
 #             studyrecord = cmd.read().strip('\n')
+#             # print("--->", studyrecord)
 #             cmd.close()
 #             data = {
-#                 "limitId": limitId,
-#                 "studyRecord": studyrecord
+#                 "studyRecord": studyrecord,
+#                 "limitId": limitId
 #             }
 #             res2 = requests.post(
 #                 url=f'{BaseURL}/learnspace/course/study/learningTime_saveAudioLearnDetailRecord.action',
-#                 headers=header, data=data
-#             )
+#                 headers=header, data=data)
 #             if '请求成功' in res2.content.decode():
 #                 print("\r", end="")
 #                 print(key, "\033[32m学习时长: {}秒 \033[0m".format(end), end="")
