@@ -24,6 +24,7 @@ base_url_ = 'https://icve-mooc.icve.com.cn'
 # 登录
 LOGIN_SYSTEM_URL = f"{BASE_URL}/data/userLogin"
 
+request_session = requests.session()
 header = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
     'Accept': "application/json, text/javascript, */*; q=0.01",
@@ -35,20 +36,27 @@ header = {
     'X-Requested-With': 'XMLHttpRequest',
     'Cookie': ''
 }
+
+
 def to_url(name, password):
     data = {
         "userName": name,
         "password": password,
         "type": 1
     }
-    token_ = requests.post(url=LOGIN_SYSTEM_URL, json=data, headers=header)
-    code_url = f"{base_url_}/patch/zhzj/api_getUserInfo.action"
-    # https://icve-mooc.icve.com.cn/?token=ec832a0a-4aca-4cc7-88dd-33f4f8917cb7
-    code_result = requests.post(url=code_url, data=token_.json()['data'], headers=header)
-    cookiejar = code_result.cookies
-    cookiedict = requests.utils.dict_from_cookiejar(cookiejar)
-    cookie_str = json.dumps(cookiedict)
-    print(cookie_str)
+    a = request_session.post(url=LOGIN_SYSTEM_URL, json=data, headers=header)
+    # ulist_url = 'https://icve-mooc.icve.com.cn/learning/u/student/student/mooc_index.action'
+    # res = request_session.get(url=ulist_url, headers=header)
+    # print(res.text)
+    # token_ = requests.post(url=LOGIN_SYSTEM_URL, json=data, headers=header)
+    # code_url = f"{base_url_}/patch/zhzj/api_getUserInfo.action"
+    # # https://icve-mooc.icve.com.cn/?token=ec832a0a-4aca-4cc7-88dd-33f4f8917cb7
+    # code_result = requests.post(url=code_url, data=token_.json()['data'], headers=header)
+    # cookiejar = code_result.cookies
+    # cookiedict = requests.utils.dict_from_cookiejar(cookiejar)
+    # cookie_str = json.dumps(cookiedict)
+    # print(cookie_str)
+    return a.json()
 
 
 def login(name, password):  # 0.登录
@@ -61,19 +69,12 @@ def login(name, password):  # 0.登录
     print(f'正在登录账号:【{name}】')
     while login_fail_num < 6:
         result = to_url(name, password)
-        json_result = result[0]
-        if json_result['code'] == 200:
+        json_result = result['code']
+        if json_result == 200:
             print(f"==================== 登陆成功:【{str(name)}】 ====================\n")
-            token = result[1]['token']
-            acw_tc = result[1]['acw_tc']
-            SERVERID = result[2]['SERVERID']
-            webtrn_cms = result[2]['webtrn_cms']
-            JSESSIONID = result[2]['JSESSIONID']
-            # print("token:", token, 'acw_tc:', acw_tc, "SERVERID:", SERVERID, "webtrn_cms:", webtrn_cms, "JSESSIONID:",
-            #       JSESSIONID)
-            return token, acw_tc, SERVERID, webtrn_cms, JSESSIONID
+            return True
         else:
-            print("\t\t--->", json_result[msg])
+            print("\t\t--->", result['msg'])
             login_fail_num += 1
     raise Exception(f"账号:{str(name)} 登录失败")
 
@@ -97,5 +98,5 @@ if __name__ == '__main__':
     for key, value in get_user_all().items():
         username = key
         password = value
-        # login(name=username, password=password)
-        to_url(name=username, password=password)
+        login(name=username, password=password)
+        # to_url(name=username, password=password)

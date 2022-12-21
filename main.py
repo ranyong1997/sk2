@@ -9,7 +9,7 @@
 
 import os
 import random
-from time import sleep
+import time
 from bdb import set_trace
 from common import init_mooc
 from bs4 import BeautifulSoup
@@ -43,7 +43,7 @@ header = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
     'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
     'Accept-Encodign': 'gzip, deflate, br',
-    'Cookie': 'JSESSIONID=3E11385E1223B4BA278890090A061C4C.learnspace_taolun_aliyun_003; aliyungf_tc=2fc0927f5a3ee5d612d75f5690676ab1366280ad5c6a2dc2aa3d1b76283c9f66; JSESSIONID=59CE88C8727A464FFA345A6758817E7F.learnspace_kfkc_aliyun; _abfpc=f26831421fa2dbe36317aa541ed619c05460effe_2.0; cna=f39af516d46dc05b2480a382baddeb0d; _uid=d2b7a2af-4691-4a84-b203-65ecfcab3e22; jwplayer.volume=50; learnspace_taolun=0be5d730b745f30657fe2554fde22ded; sid=f03db508-22eb-4047-9238-88db953fa0da; h_courseId=1754b2c1a83f4268a668e959b9d3941a; platform_flag=learnspace; UNTYXLCOOKIE=dXNlci5pY3ZlLmNvbS5jbnx8MWRjZjNmMWY3OTI3NjM2MTVmYmNjM2Q3MDlmMjBhNDN8fDEzMjA2MjY5ODA0fHx6aHpq; learning-course=ms32amyox4hk6j6arvwmra_1754b2c1a83f4268a668e959b9d3941a___; rest_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbklkIjoiMTMyMDYyNjk4MDQiLCJzaXRlQ29kZSI6InpoemoiLCJ1c2VyX25hbWUiOiIxMzIwNjI2OTgwNCIsInBob3RvIjoibnVsbCIsInN1SWQiOiJtczMyYW15b3g0aGs2ajZhcnZ3bXJhIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TVFVERU5UIl0sImNsaWVudF9pZCI6IjIxMDgxODc3MTgiLCJ0cnVlTmFtZSI6IuWGieWLhyIsInN1ZElkIjoibXMzMmFteW94NGhrNmo2YXJ2d21yYSIsInJvbGVDb2RlIjoiMCIsInNjb3BlIjpbImFsbCJdLCJyb2xlTmFtZSI6IuWtpueUnyIsImV4cCI6MTY3Mjc1MDY3NywianRpIjoiODE0NzZlMTMtMmU1YS00ZDBlLTk5MmMtY2M4NDc4ZjgzNjlmIn0.YDLYhcmxUWVZEJCYZHKea4OARmPQI0VDJy4EJ81zFvvG1BKbErxpSPQX2niMhGlYrPSdLFx97haf5Xtg2L8T-Qn5XTMiWAgtSwelP9r1d308tHw9L3H1wnXZjMfp3Pl6X2Uh3UlDtZMzVpEFlvlA8uiI4OyYYf-1HJ8ibcvUAuzwuUI_DdzYjIeosrH3ojwZebxjoBNUV_HmObaZzDRCjTXbuk98EsKm4N2Zk1V4VsVJ4ZmMWVKv3NvChBZuhDhm6wRCohxNfXjrJwqPQ2fLi5pHi6QSw8Gr7NmSxarOTJUQb2G-Q5G5wxp8NFyq6WzsJx_KH5HdLfvvlc9GGv5SnA; token=ea6ef0aa-22cb-4349-b3c2-164c1928baa8; acw_tc=76b20f8f16715441940246947e26284313967b980b97ca86c21822e01a7e22; ssxmod_itna=QqGxnDRDcDg0iQNGHIgq7qBIvR7KsOQqbY7bNDl2oxA5D8D6DQeGTb2KDBiWbjiiHIW3Yi4qXae3USbb1qKUYaNebDneG0DQKGmDBKDSDWKD9mAT4GGfxBYDQxAYDGDDPcDGqsg2D7OzzM=9CHZ0sDlezwZPCuODDUlDhwPFFp=HQup2Pr4i3EnKDXP3Dv2yCG6cw9PYs13rxEWGeapI4LQ0qS0GxK1hxbmrK3lMxsDM5HQG44o43n/QxDDcqeQx0YYD; ssxmod_itna2=QqGxnDRDcDg0iQNGHIgq7qBIvR7KsOQqbY7D618ChD05bx03Nee2YDB0in8kTLAHQkBCZ7BjQ6t/To67Ob9SbQf7F+7I4Eq+6ZhRUrI1OOQqChIKZans1tTf=D6CC0Dhcp5kUBR5vdd08rXDpfixaRiqXf0wKWXs3M5Et32HUhQu7TEjejjUj45uzWok/nQo=MbInnu3rSfjeknH5Cd9/qvOlLPKWkiiIOyxs7HL3ThImf+O7kW891D+qbx2/1iCS4xaHYK2WRqXfn9tyIgBU40bojcKu+rP1yW/Spt9hvZUnLBUWZhjlXsrdsPLRDwuYPjaodEowpExrpVhIdorPKLtO09aXqpN=av6QvADEvQvynUAYRqhI/lrN4oBh3BgI5n4VgfRa05Z5f033EU1cmpBqEjd/prhRR19+WRtpfEs2XrhKaOW9xYW1Nz14DQK4iDqG9E3RQY09DdnjeOEh7/0iXhQAh=Qi5F+p+k=BPxD08DiQzCDqmhxYD==; SERVERID=f25cd604b9c4c08dc3b80e49f8c85d21|1671545118|1671244551; ST="iRTbREqU+vDEtYQ+T94SS0p64SwIU4W4EiW7lCLZ58Jx2KWVyu2Upg=="'
+    'Cookie': 'JSESSIONID=7E6310AD0A19AAA0F72248A6FF8567DF.learnspace_taolun_aliyun_002; _abfpc=1d466485af98ed5add63780f7b4ace668b0502d5_2.0; cna=d0ed267474e1abe89b79166eab802eac; ssxmod_itna=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2W7nDDsqtrDSxGKidDqxBWWl2He9v9vhiAClo2oDgnTP0Nfb9l74h=5llWeDHxY=DUpDTeqrDeW=D5xGoDPxDeDAQKiTDY4DdjpNv=DEDeKDRDAQDzwd/4h6z/G=DI3iDmTLDx7t9ITL5qeG2DGUeIkGx7qDMIeGXC0nPxDUTTZwMIMuixYPWQk0xxBQD7di9DYoUneDHzdN8ghDW0Gm10iQ5WOxqt+G+7Gme/RhA/GGi7xqLdYeGYr+1b5DAYDj1CiD=; ssxmod_itna2=eqAxBC0Qq7qWuDBPr97QGQtIO7D0DCq2WYikIqqhDlphxjb+xj8drKju5QqL3QD6mYmtQjBPeuDwjW3jAqvee4Yv8eCKdYcftOKCDXesC+iF4OqlKUycajU8B1dQ2BWuHqOQfcS6q/24ax9DdEc5C2mKCYIyGZY7GPhrOWp74jCvGErqCPKwh+pvGq0YN+Rqa0pAGW3BaQfHGL9bx0WkCclYaAF5QlC2hDH3202n7OIeTKAjiQO8F6cIhNgLoDQFODjKD+a95=nxbMAQOYpDK4D=; _uid=10b64d0f-5e25-46df-aa14-9e89b0f28624; token=91d9c9b5-ed6d-4883-81d2-99061f7029b6; aliyungf_tc=2dc350c0ce107b8106475bd2fd4b05ded3ea0426ae0437169d59a552c6b37cd6; UNTYXLCOOKIE=dXNlci5pY3ZlLmNvbS5jbnx8MWRjZjNmMWY3OTI3NjM2MTVmYmNjM2Q3MDlmMjBhNDN8fDEzMjA2MjY5ODA0fHx6aHpq; learning-course=ms32amyox4hk6j6arvwmra_1754b2c1a83f4268a668e959b9d3941a___; learnspace_taolun=767837d9687241c17e6338dbd2413c6e; sid=632519b2-2297-437e-8306-01388da15d65; rest_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbklkIjoiMTMyMDYyNjk4MDQiLCJzaXRlQ29kZSI6InpoemoiLCJ1c2VyX25hbWUiOiIxMzIwNjI2OTgwNCIsInBob3RvIjoibnVsbCIsInN1SWQiOiJtczMyYW15b3g0aGs2ajZhcnZ3bXJhIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9TVFVERU5UIl0sImNsaWVudF9pZCI6IjIxMDgxODc3MTgiLCJ0cnVlTmFtZSI6IuWGieWLhyIsInN1ZElkIjoibXMzMmFteW94NGhrNmo2YXJ2d21yYSIsInJvbGVDb2RlIjoiMCIsInNjb3BlIjpbImFsbCJdLCJyb2xlTmFtZSI6IuWtpueUnyIsImV4cCI6MTY3Mjc5NDUwMywianRpIjoiYjdmMTEzZGQtY2VlNy00NzUxLTg1NWItYTY3YmQ4Mzg4NjE1In0.S2H4C0Yo3IsO4HjTX1Dsu55mw1r-lWi0dz3KpMSEI9Gg7b475VRlxiV7QKLOzf_3RdI9dYAGJ967PSEOdbI-C3bHEszRPwBlZQIhOjQzFDcG6O0th6aiGeKcXLHFOd__JNWxu0IPKBGTUu7mkahWkEMrf0BxdX5c1G-pY8cIwCKHWAAIuyhewWPFYkPrguKDvVVNiF4AEfUAsjgVBzjf3LptJ9rMtVzLd1baRUT6v1VEAAXJAw3rl03sGen2dNOKzwxxj4-TYbCyxZcyzvaN8Taie7CcaA7q0hP4G38jYsUhILwqaup65ZS_o3wndOn_m3bl23lW4FTiR2SuQHJ0SQ; h_courseId=1754b2c1a83f4268a668e959b9d3941a; platform_flag=learnspace; acw_tc=76b20f8216715867223892829e7737f8ae33d201fb05c4cce17449b110ac58; alicfw=742397870%7C2123194196%7C1328233537%7C1328232896; alicfw_gfver=v1.200309.1; SERVERID=f25cd604b9c4c08dc3b80e49f8c85d21|1671587824|1671584891; ST="kHPdrCq5BbyvjdzwvfHXCNFyxnKUR6+V9klaiNj/yr4="'
 }
 
 # 获取limitId
@@ -83,7 +83,7 @@ for key in itemids.keys():
         'itemId': itemid,
         'videoTotalTime': '00:10:00'
     }
-    total = requests.post(url='https://course.icve.com.cn/learnspace/course/plugins/cloud_updateVideoTotalTime.action',
+    total = requests.post(url=f'{BaseURL}/learnspace/course/plugins/cloud_updateVideoTotalTime.action',
                           headers=header, data=data2)
     # 判断视频是否学习完成
     data2 = {
@@ -129,6 +129,7 @@ for key in itemids.keys():
         if '总时长' in res2.content.decode():
             break
     print(key, '\033[31m学习完成\033[0m')
+    time.sleep(1)
 
 # 判断文档
 divs = soup.find_all(id=re.compile("s_point_.*"), itemtype="doc")
@@ -241,11 +242,11 @@ for key in itemids.keys():
     data = {
         "action": "reply",
         "curPage": 999,
-        "parentId": '402883a980d664480183308807d429fc',
-        "mainId": '402883a980d664480183308807d429fc',
+        "parentId": '402883e681197106018329f789602031',
+        "mainId": '402883e681197106018329f789602031',
         "content": "{}".format(random.choice(Irrigation_content)),
         "itemId": itemid,
-        "courseId": "1754b2c1a83f4268a668e959b9d3941a",
+        "courseId": courseId,
         "createUserId": "402883e5811970fc0183f4ae5cbf55e8",
     }
     response = requests.post(
