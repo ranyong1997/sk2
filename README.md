@@ -1,76 +1,43 @@
+|                              项目                               |                                       适用网站                                       |          功能          |
+|:-------------------------------------------------------------:| :----------------------------------------------------------------------------------: | :--------------------: |
+| [mooc-work-answer](https://github.com/11273/mooc-work-answer) |[智慧职教-新版](https://icve-mooc.icve.com.cn)|刷课、讨论|
 
-## 适用https://icve-mooc.icve.com.cn/cms/
-### 主要刷课API
+- **仅适用于:<https://mooc.icve.com.cn/>**
 
-- URL：https://course.icve.com.cn/learnspace/course/study/learningTime_saveVideoLearnDetailRecord.action
-请求方式：Post
-参数：
+特别鸣谢: [11273](https://github.com/11273)  给予帮助
 
-limitId: 包含在网页的javascript中，每次刷新页面limitId也会刷新，可重复用
-studyRecord： 通过crypto-js AES加密的一串数据，包含课程ID，视频ID，以及学习时长，学习起始秒数和学习结束的秒数。
+## 实现功能
 
-返回结果：”保存状态成功“或者“参数不合法，超出时长”，学习时长越长，需要等待一定时间才能第再次保存学习状态。学习时长短不需要等待。
-
-![](image/img1.png)
-
-### 获取limitId
-
-- URL:https://course.icve.com.cn/learnspace/learn/learn/templateeight/index.action?params.courseId=26ae32dc2dcd4c9cbace10894d9a172b___&params.templateType=8&params.templateStyleType=0&params.template=templateeight&params.classId=&params.tplRoot=learn
-请求方式： Get
-
-参数：url里面可以看到，主要包含一个课程id，其他的似乎默认就行,可以去浏览器里找到对应的url
-
-返回结果：内容是html网页，直接通过正则搜索找到limitId
-
-![](image/img2.png)
+| 版本   | 功能 | 介绍 | 完成 |
+| ------ | :--: | :--: | :--: |
+| 新版 ↓ |      |      |      |
+|        | 刷课 | 完成 |  ✅  |
+|        | 讨论 | 完成 |  ✅  |
 
 
-studyRecord AES加密的学习状态参数
-![](image/img3.png)
+## 运行环境
 
-官方加密功能函数和格式化函数的js文件URL: https://course.icve.com.cn/learnspace/resource/common/js/CommonUtil.js?v=2022042401。
+- python ≥ 3.6 < 3.9 (3.9 部分用户安装不了 Pillow 库)
+- 运行所需 pip 包请自行切换到本项目根目录使用以下命令进行安装
 
-studyRecord参数就是将数据格式化后序列化再进行AES加密得到的字符串
+  ```pip
+   pip3 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple 
+  ```
+### 开发者运行
+1、将data目录下的`可用账号.csv.example`复制同级目录，并删除`.example`
 
-主要的参数就只有courseId,itemId,stratTime,endTime:
+2、将`name`,`username`,`password`改成自己正确的账号，支持批量运行
 
-courseId: 代表当前学习课程的16进制id
+3、运行 `StartWork.py`
 
-itemId: 对应课程中的每个视频或者文档也有一个16进制id
+## 免责声明
 
-startTime: 对应视频时长进度
+⚠️ 本项目仅限于学习交流使用，项目中使用的代码及功能如有侵权或违规请联系作者删除
 
-endTime: 对应视频的时长，表示当前视频从startTime秒学习到了endTime的秒数
+⚠️ 本项目接口数据均来自于 mooc，请勿用于其它商业目的
 
-### 文档内容完成学习API
-- url:https://course.icve.com.cn/learnspace/course/study/learningTime_saveCourseItemLearnRecord.action
+⚠️ 如使用本项目代码造成侵权与原作者[11273](https://github.com/11273) 和作者无关
 
-参数：课程id，视频id，其他的参数固定即可
-![](image/img4.png)
+⚠️ [提交 BUG 规范](https://github.com/11273/mooc-work-answer/issues/22)
 
-
-获取itemId
-url:https://course.icve.com.cn/learnspace/learn/learn/templateeight/courseware_index.action?params.courseId=26ae32dc2dcd4c9cbace10894d9a172b___
-
-返回的html中包含itmeId，可以通过beautifulsoup搜索id=spoint.* 获得对对应的标签
-![](image/img5.png)
-
-判断内容是否已经完成
-url:https://course.icve.com.cn/learnspace/learn/learnCourseware/getSingleItemCompleteCase.json
-
-返回json,completed等于1表示学习完成，2表示部分学习，0表示内容没有学习过。
-![](image/img6.png)
-
-效果图
-![](image/img7.png)
-![](image/img8.png)
-
-
-完整py+nodejs代码
-py需要安装库: requests bs4
-
-nodejs需要安装库: crypto-js
-
-自行替换python代码中的Cookie，test.js主要是做参数加密，运行python文件即可
-
-文章参考地址：https://www.52pojie.cn/forum.php?mod=viewthread&tid=1710666&highlight=mooc
+⚠️ 提交请前往: [点击前往 >>>](https://github.com/11273/mooc-work-answer/issues/new)
