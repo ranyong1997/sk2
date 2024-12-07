@@ -12,8 +12,7 @@ import re
 import time
 import requests
 from lxml import etree, html
-from MoocMain.log import Logger
-from utils.log_util import logger as log
+from NewMoocMain.log import Logger
 from NewMoocMain.acwv2 import get_acw_sc__v2
 
 logger = Logger(__name__).get_log()

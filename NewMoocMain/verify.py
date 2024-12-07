@@ -14,7 +14,7 @@ from io import BytesIO
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from PIL import Image
-from MoocMain.log import Logger
+from NewMoocMain.log import Logger
 
 logger = Logger(__name__).get_log()
 
