@@ -168,6 +168,7 @@ dmypy.json
 # Pyre type checker
 
 /data/可用账号.csv
+/data/总账号24.05.06.csv.csv
 /data1/*
 data2/*
 data3/*
