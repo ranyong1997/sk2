@@ -3,7 +3,7 @@
 # @Author : Melon
 # @Site : 
 # @Note : 
-# @File : StartWork.py
+# @File : StartWork1.py
 # @Software: PyCharm
 import time
 import pandas as pd
@@ -16,7 +16,7 @@ logger = Logger(__name__).get_log()
 
 # ****************************************** 配置 ******************************************
 # 数据文件
-input_file = 'data/可用账号.csv'
+input_file = 'data3/可用账号.csv'
 
 # 通知机器人
 WEB_HOOK = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a22cd5a6-ec18-414f-86f6-e4f3c3174b42"

@@ -168,5 +168,9 @@ dmypy.json
 # Pyre type checker
 
 /data/可用账号.csv
+/data1/*
+data2/*
+data3/*
+data4/*
 
 /logs/*

@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  sk2-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sk2
+    ports:
+      - "8081:8000"
+    restart: always
+    # 添加环境变量
+    environment:
+      - TZ=Asia/Shanghai
+    # 资源限制
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
