@@ -19,7 +19,7 @@ def run_scripts():
 
     # 使用ThreadPoolExecutor（如果是IO密集型任务）
     # 或者ProcessPoolExecutor（如果是CPU密集型任务）
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ThreadPoolExecutor() as executor:
         # 提交所有脚本执行任务
         futures = [executor.submit(run_script, script) for script in scripts]
 
