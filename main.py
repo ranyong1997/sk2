@@ -6,23 +6,25 @@
 # @File    : main.py
 # @Software: PyCharm
 # @desc    :
+import concurrent.futures
 import subprocess
 
 
-def run_scripts():
-    # 并行运行脚本
-    process1 = subprocess.Popen(['python', 'StartWork.py'])
-    process2 = subprocess.Popen(['python', 'StartWork1.py'])
-    process3 = subprocess.Popen(['python', 'StartWork2.py'])
-    process4 = subprocess.Popen(['python', 'StartWork3.py'])
-    process5 = subprocess.Popen(['python', 'StartWork5.py'])
+def run_script(script_name):
+    subprocess.run(['python', script_name])
 
-    # 等待两个进程都完成
-    process1.wait()
-    process2.wait()
-    process3.wait()
-    process4.wait()
-    process5.wait()
+
+def run_scripts():
+    scripts = ['StartWork.py', 'StartWork1.py', 'StartWork2.py', 'StartWork3.py']
+
+    # 使用ThreadPoolExecutor（如果是IO密集型任务）
+    # 或者ProcessPoolExecutor（如果是CPU密集型任务）
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        # 提交所有脚本执行任务
+        futures = [executor.submit(run_script, script) for script in scripts]
+
+        # 等待所有任务完成
+        concurrent.futures.wait(futures)
 
 
 if __name__ == '__main__':

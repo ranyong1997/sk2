@@ -201,7 +201,7 @@ def learning_time_save_video_learn_time_long_record(session, study_record, limit
     logger.debug(post.text)
     if "请每5分钟提交一次学习数据" in post.text:
         logger.info("\t\t\t\t !!!提交过快，每5分钟提交一次学习数据，进行延迟160s，请勿操作...")
-        time.sleep(160)
+        time.sleep(150)
         return learning_time_save_video_learn_time_long_record(session, study_record, limit_id)
     return post.json()
 
@@ -254,7 +254,7 @@ def learning_time_save_learning_time(session, course_id, limit_id):
         acw_sc__v2 = get_acw_sc__v2(post.text)
         session.cookies.set('acw_sc__v2', acw_sc__v2)
         logger.info("\t\t\t\t\t 自动输入成功: %s，进行延迟，请勿操作...", acw_sc__v2)
-        time.sleep(60)
+        time.sleep(5)
         return learning_time_save_learning_time(session, course_id, limit_id)
     return post.json()
 
@@ -272,7 +272,7 @@ def video_learn_record_detail(session, course_id, item_id, video_total_time):
         acw_sc__v2 = get_acw_sc__v2(post.text)
         session.cookies.set('acw_sc__v2', acw_sc__v2)
         logger.info("\t\t\t\t\t 自动输入成功: %s，进行延迟，请勿操作...", acw_sc__v2)
-        time.sleep(60)
+        time.sleep(5)
         return video_learn_record_detail(session, course_id, item_id, video_total_time)
     return post.text
 
@@ -291,7 +291,7 @@ def course_topic_action(session, course_id, item_id, content):
             acw_sc__v2 = get_acw_sc__v2(get_html.text)
             session.cookies.set('acw_sc__v2', acw_sc__v2)
             logger.info("\t\t\t\t\t 自动输入成功: %s，进行延迟，请勿操作...", acw_sc__v2)
-            time.sleep(10)
+            time.sleep(5)
             return get__main_id__create_user_id(session)
         html = etree.HTML(get_html.text)
         current_main_id = html.xpath('//input[@id="current_main_id"]/@value')[0]
@@ -324,7 +324,7 @@ def course_topic_action(session, course_id, item_id, content):
         acw_sc__v2 = get_acw_sc__v2(post.text)
         session.cookies.set('acw_sc__v2', acw_sc__v2)
         logger.info("\t\t\t\t\t 自动输入成功: %s，进行延迟，请勿操作...", acw_sc__v2)
-        time.sleep(10)
+        time.sleep(5)
         return course_topic_action(session, course_id, item_id, content)
     return post.json()
 
@@ -406,7 +406,7 @@ def openLearnResItem(id, type, w=None, c=None):
         # time_save_learning_time = learning_time_save_learning_time(session, course_id, item_id)
         # print(time_save_learning_time)
         if type == "video" or type == 'courseware':
-            time.sleep(10)
+            time.sleep(5)
             # 查询视频总时长
             video_resources = query_video_resources(session, id)
             data_video_time = video_resources['data']['videoTime']
@@ -437,7 +437,7 @@ def openLearnResItem(id, type, w=None, c=None):
                 end_time = start_time + space
                 time.sleep(space / 2)
         elif type == "topic":
-            time.sleep(10)
+            time.sleep(5)
             # 讨论
             if topic_content_all is None or topic_content_all == '' or '#' not in topic_content_all:
                 logger.info("--> 没有获取到讨论回复模板，不执行讨论。")
@@ -452,7 +452,7 @@ def openLearnResItem(id, type, w=None, c=None):
             audio_time_sec = time_to_seconds(audio_time)
             start_time = 0
             end_time = audio_time_sec
-            time.sleep(audio_time_sec / 1.5 + 10)
+            time.sleep(audio_time_sec / 1.5 + 5)
             aes = get_aes(session, course_id, item_id, audio_time, audio=True, start_time=start_time, end_time=end_time)
             learn_detail_record = learning_time_save_audio_learn_detail_record(session, aes, item_id)
             logger.info(
@@ -460,9 +460,10 @@ def openLearnResItem(id, type, w=None, c=None):
                 learn_detail_record['data']['detailRecordResult']['msg']
             )
         elif type == "exam":
+            #todo:作业
             logger.info("\t\t\t\t ~~~~>执行结果: 作业考试跳过。")
         else:
-            time.sleep(10)
+            time.sleep(1)
             course_item_learn_record = learning_time_save_course_item_learn_record(session, course_id, item_id)
             logger.info("\t\t\t\t ~~~~>执行结果: %s", course_item_learn_record['errorMsg'])
     except Exception as e:
