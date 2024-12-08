@@ -81,7 +81,7 @@ def process_csv_logins(input_file, course_id, topic_content):
                 log.info(f"完成的姓名:{name} | 账号:{username} | 进度: {completed_accounts}/{total_accounts}")
                 wn_webhook.send_msg_markdown(
                     f"""
-            **刷课Bot**
+                **刷课Bot**
 课程ID: `{course_id}`
 姓名: `{name}`
 账号: `{username}`
